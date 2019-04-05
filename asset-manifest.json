@@ -1,5 +1,5 @@
 {
-  "main.css": "/rent-care/static/css/main.655e9a3c.chunk.css",
+  "main.css": "/rent-care/static/css/main.fa066ef1.chunk.css",
   "main.js": "/rent-care/static/js/main.b2afbc88.chunk.js",
   "main.js.map": "/rent-care/static/js/main.b2afbc88.chunk.js.map",
   "runtime~main.js": "/rent-care/static/js/runtime~main.f9d48b3e.js",
@@ -7,7 +7,7 @@
   "static/js/2.65aa1cca.chunk.js": "/rent-care/static/js/2.65aa1cca.chunk.js",
   "static/js/2.65aa1cca.chunk.js.map": "/rent-care/static/js/2.65aa1cca.chunk.js.map",
   "index.html": "/rent-care/index.html",
-  "precache-manifest.f7c8eb6a3ef59c5372452bf9cfbae627.js": "/rent-care/precache-manifest.f7c8eb6a3ef59c5372452bf9cfbae627.js",
+  "precache-manifest.1565e0d6a2a1ef5f4c6a0883f2fbf048.js": "/rent-care/precache-manifest.1565e0d6a2a1ef5f4c6a0883f2fbf048.js",
   "service-worker.js": "/rent-care/service-worker.js",
-  "static/css/main.655e9a3c.chunk.css.map": "/rent-care/static/css/main.655e9a3c.chunk.css.map"
+  "static/css/main.fa066ef1.chunk.css.map": "/rent-care/static/css/main.fa066ef1.chunk.css.map"
 }
