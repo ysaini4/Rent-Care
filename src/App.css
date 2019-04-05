@@ -15,10 +15,10 @@
   box-shadow: none;
 }
 .main-menu {
-  background: none;
+  /* background: none; */
 }
 .nav-menu a {
-  color: white;
+  color: #0c0c0c;
 }
 .sticky-wrapper {
   height: 0px !important;
