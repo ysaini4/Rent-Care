@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Route, Redirect, Switch } from "react-router-dom";
+import { Route, Redirect, Switch, Router } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 
 import "./App.css";
@@ -16,10 +16,10 @@ class App extends Component {
         <ToastContainer />
         <Header />
         <Switch>
-          <Route path="/home" component={Home} />
-          <Route path="/not-found" component={NotFound} />
-          <Redirect from="/" to="/home" exact />
-          <Redirect to="/home" />
+          <Route path="/rent-care/home" component={Home} />
+          <Route path="/rent-care/not-found" component={NotFound} />
+          <Redirect from="/rent-care" to="/rent-care/home" exact />
+          <Redirect to="/rent-care/home" />
         </Switch>
       </React.Fragment>
     );
