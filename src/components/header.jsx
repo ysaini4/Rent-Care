@@ -27,12 +27,7 @@ const Header = () => {
           <div className="row align-items-center justify-content-between d-flex">
             <div id="logo">
               <a href="index.html">
-                <img
-                  src="img/logo.png"
-                  alt=""
-                  title=""
-                  style={{ width: 140 }}
-                />
+                <img src="img/aa.jpeg" alt="" title="" style={{ width: 140 }} />
               </a>
             </div>
             <nav id="nav-menu-container">
