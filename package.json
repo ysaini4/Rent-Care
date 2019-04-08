@@ -20,7 +20,6 @@
   "eslintConfig": {
     "extends": "react-app"
   },
-  "homepage": "https://ysaini4.github.io/rent-care/",
   "browserslist": [
     ">0.2%",
     "not dead",
