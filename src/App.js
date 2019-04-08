@@ -15,12 +15,13 @@ class App extends Component {
       <React.Fragment>
         <ToastContainer />
         <Header />
-        <Switch>
-          <Route path="/rent-care/home" component={Home} />
-          <Route path="/rent-care/not-found" component={NotFound} />
-          <Redirect from="/rent-care" to="/rent-care/home" exact />
-          <Redirect to="/rent-care/home" />
-        </Switch>
+        <Home />
+        {/* <Switch>
+          <Route path="/home" component={Home} />
+          <Route path="/not-found" component={NotFound} />
+          <Redirect from="/" to="/home" exact />
+          <Redirect to="/home" />
+        </Switch> */}
       </React.Fragment>
     );
   }
