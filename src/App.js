@@ -19,7 +19,7 @@ class App extends Component {
           <Route path="/home" component={Home} />
           <Route path="/not-found" component={NotFound} />
           <Redirect from="/" to="/home" exact />
-          <Redirect to="/home" />
+          <Redirect to="/not-found" />
         </Switch>
       </React.Fragment>
     );
