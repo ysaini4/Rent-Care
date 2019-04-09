@@ -11,6 +11,7 @@
     "react-scripts": "2.1.8",
     "react-toastify": "^5.0.0-rc.6"
   },
+  "homepage": "https://ysaini4.github.io/rent-care",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
