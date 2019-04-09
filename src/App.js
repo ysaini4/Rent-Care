@@ -13,10 +13,8 @@ import AddProperty from "./components/addProperty";
 import Footer from "./components/footer";
 class App extends Component {
   render() {
-    console.log("re");
     return (
       <React.Fragment>
-        <Script url="js/main.js" async defer />
         <ToastContainer />
         <Header />
         <Switch>

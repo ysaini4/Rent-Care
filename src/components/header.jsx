@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import mobileToggle from "../utility/mobileToggle";
 const Header = () => {
   return (
     //Start Header Area
@@ -78,6 +79,39 @@ const Header = () => {
           </div>
         </div>
       </div>
+      <nav id="mobile-nav">
+        <ul className="" id="">
+          <li className="menu-active">
+            <Link to="/home" onClick={mobileToggle}>
+              home
+            </Link>
+          </li>
+          <li>
+            <Link to="/addproperty" onClick={mobileToggle}>
+              Add properties
+            </Link>
+          </li>
+          <li>
+            <Link to="/home" onClick={mobileToggle}>
+              Rent properties
+            </Link>
+          </li>
+          <li>
+            <Link to="/home" onClick={mobileToggle}>
+              Buy properties
+            </Link>
+          </li>
+          <li>
+            <Link to="/home" onClick={mobileToggle}>
+              Sell properties
+            </Link>
+          </li>
+        </ul>
+      </nav>
+      <button type="button" id="mobile-nav-toggle" onClick={mobileToggle}>
+        <i className="lnr lnr-menu" />
+      </button>
+      <div id="mobile-body-overly" style={{ display: "none" }} />
     </header>
   );
   //<!-- End Header Area --> );
