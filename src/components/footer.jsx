@@ -1,5 +1,5 @@
 import React from "react";
-
+import { Script } from "react-load-script";
 const Footer = () => {
   return (
     <footer className="footer-area section-gap">
@@ -40,7 +40,7 @@ const Footer = () => {
                     <button className="click-btn btn btn-default">
                       <i className="lnr lnr-arrow-right" aria-hidden="true" />
                     </button>
-                    <div style="position: absolute; left: -5000px;">
+                    <div style={{ position: "absolute", left: -5000 }}>
                       <input
                         name="b_36c4fd991d266f23781ded980_aefe40901a"
                         tabindex="-1"

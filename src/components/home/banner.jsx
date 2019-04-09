@@ -1,4 +1,5 @@
 import React from "react";
+
 const Banner = () => {
   return (
     <section className="home-banner-area relative" id="home">

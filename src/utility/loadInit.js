@@ -1,4 +1,4 @@
-$(document).ready(function() {
+export default function loadInit($, google) {
   "use strict";
 
   var window_width = $(window).width(),
@@ -296,4 +296,4 @@ $(document).ready(function() {
     prefix: "",
     grid: true
   });
-});
+}

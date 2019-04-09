@@ -1,5 +1,5 @@
 import React from "react";
-
+import { Link } from "react-router-dom";
 const Header = () => {
   return (
     //Start Header Area
@@ -9,13 +9,13 @@ const Header = () => {
           {/* <div className="d-flex justify-content-end align-items-center">
             <ul className="list">
               <li>
-                <a href="tel:++880 1234 654 953">+880 1234 654 953</a>
+                <Link to="tel:++880 1234 654 953">+880 1234 654 953</Link>
               </li>
               <li>
-                <a href="#">Sell / Rent Property</a>
+                <Link to="#">Sell / Rent Property</Link>
               </li>
               <li>
-                <a href="#">login / register</a>
+                <Link to="#">login / register</Link>
               </li>
             </ul>
           </div> */}
@@ -26,51 +26,51 @@ const Header = () => {
         <div className="container">
           <div className="row align-items-center justify-content-between d-flex">
             <div id="logo">
-              <a href="index.html">
+              <Link to="index.html">
                 <img src="img/aa.jpeg" alt="" title="" style={{ width: 140 }} />
-              </a>
+              </Link>
             </div>
             <nav id="nav-menu-container">
               <ul className="nav-menu">
                 <li className="menu-active">
-                  <a href="index.html">home</a>
+                  <Link to="/home">home</Link>
                 </li>
                 <li>
-                  <a href="properties.html">Add properties</a>
+                  <Link to="/addproperty">Add properties</Link>
                 </li>
                 <li>
-                  <a href="about.html">Rent properties</a>
+                  <Link to="/home">Rent properties</Link>
                 </li>
                 <li>
-                  <a href="about.html">Buy properties</a>
+                  <Link to="/home">Buy properties</Link>
                 </li>
                 <li>
-                  <a href="about.html">Sell properties</a>
+                  <Link to="/home">Sell properties</Link>
                 </li>
                 {/* <li className="menu-has-children">
-                  <a href="">blog</a>
+                  <Link to="">blog</Link>
                   <ul>
                     <li>
-                      <a href="blog-home.html">Buy properties</a>
+                      <Link to="blog-home.html">Buy properties</Link>
                     </li>
                     <li>
-                      <a href="single-blog.html">Sell properties</a>
+                      <Link to="single-blog.html">Sell properties</Link>
                     </li>
                   </ul>
                 </li>
                 <li className="menu-has-children">
-                  <a href="">Pages</a>
+                  <Link to="">Pages</Link>
                   <ul>
                     <li>
-                      <a href="agents.html">Agents</a>
+                      <Link to="agents.html">Agents</Link>
                     </li>
                     <li>
-                      <a href="elements.html">Elements</a>
+                      <Link to="elements.html">Elements</Link>
                     </li>
                   </ul>
                 </li>
                 <li>
-                  <a href="contact.html">Contact</a>
+                  <Link to="contact.html">Contact</Link>
                 </li> */}
               </ul>
             </nav>
