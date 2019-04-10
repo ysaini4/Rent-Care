@@ -12,9 +12,6 @@ body {
 .default-header {
   box-shadow: none;
 }
-.main-menu {
-  /* background: none; */
-}
 .nav-menu a {
   color: #0c0c0c;
 }
@@ -23,4 +20,14 @@ body {
 }
 .top-section-gap {
   padding: 110px 0px;
+}
+.banner-area {
+  margin-top: 0;
+}
+.home-banner-area .overlay {
+  background: url(/img/grid1.png) repeat center;
+}
+.home-banner-area,
+.banner-area {
+  background: url(/img/header-bg1.jpg) no-repeat center center/cover;
 }

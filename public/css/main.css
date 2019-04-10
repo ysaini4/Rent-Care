@@ -2372,11 +2372,10 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 .home-banner-area {
-  background: url(../img/header-bg1.jpg) no-repeat center center/cover;
+  background: url(../img/header-bg.jpg) no-repeat center center/cover;
 }
 .home-banner-area .overlay {
-  /* background: rgba(0, 0, 0, 0.18); */
-  background: url(../img/grid1.png) repeat center;
+  background: rgba(0, 0, 0, 0.18);
 }
 
 .banner-area {

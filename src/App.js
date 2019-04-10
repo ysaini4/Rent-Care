@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Route, Redirect, Switch, Router } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
-import Script from "react-load-script";
+
 import "react-toastify/dist/ReactToastify.css";
 import "./App.css";
 
