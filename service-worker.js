@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/rent-care/precache-manifest.2db73af21e586cee3d0399f3813c8168.js"
+  "/rent-care/precache-manifest.131bc74b802d01ad9d00120bdf563659.js"
 );
 
 workbox.clientsClaim();
