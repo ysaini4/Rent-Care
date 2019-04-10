@@ -28,7 +28,7 @@ const PropertyArea = () => {
                   <div className="desc">
                     <div className="top d-flex justify-content-between">
                       <h4>
-                        <a href="#">04 Bed Duplex</a>
+                        <a href="/">04 Bed Duplex</a>
                       </h4>
                       <h4>$3.5M</h4>
                     </div>
@@ -78,7 +78,7 @@ const PropertyArea = () => {
               <div className="desc">
                 <div className="top d-flex justify-content-between">
                   <h4>
-                    <a href="#">04 Bed Duplex</a>
+                    <a href="/">04 Bed Duplex</a>
                   </h4>
                   <h4>$3.5M</h4>
                 </div>
@@ -125,7 +125,7 @@ const PropertyArea = () => {
               <div className="desc">
                 <div className="top d-flex justify-content-between">
                   <h4>
-                    <a href="#">04 Bed Duplex</a>
+                    <a href="/">04 Bed Duplex</a>
                   </h4>
                   <h4>$3.5M</h4>
                 </div>

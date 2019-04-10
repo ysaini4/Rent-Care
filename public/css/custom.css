@@ -1,5 +1,8 @@
 .home-banner-area .overlay {
-  background: url(../img/grid1.png) repeat center;
+  background: url(../img/grid2.png) repeat center;
+}
+.banner-area .overlay {
+  background: url(../img/grid2.png) repeat center;
 }
 .home-banner-area,
 .banner-area {

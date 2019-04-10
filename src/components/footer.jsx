@@ -1,5 +1,4 @@
 import React from "react";
-import { Script } from "react-load-script";
 const Footer = () => {
   return (
     <footer className="footer-area section-gap">

@@ -1,10 +1,9 @@
 export default function loadInit() {
-  "use strict";
   const $ = window.$;
-  var window_width = $(window).width(),
-    window_height = window.innerHeight,
+  //var window_width = $(window).width()
+  var window_height = window.innerHeight,
     header_height = $(".default-header").height(),
-    header_height_static = $(".site-header.static").outerHeight(),
+    //header_height_static = $(".site-header.static").outerHeight(),
     fitscreen = window_height - header_height;
 
   $(".fullscreen").css("height", window_height);
