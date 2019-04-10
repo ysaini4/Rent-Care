@@ -15,15 +15,24 @@ code {
 }
 
 .search-field {
-  background-color: #f8f9fa85;
+  background-color: #00000085;
   border-radius: 2px;
   margin-top: 80px;
+  color: white;
+}
+.search-title {
+  color: white;
+}
+.search-field .app-select {
+  color: #0c0c0c;
+  font-weight: bolder;
 }
 .section-gap {
   padding: 30px 0px;
 }
 .default-header {
-  box-shadow: none;
+  /* box-shadow: none; */
+  border-bottom: solid #c92828;
 }
 .nav-menu a {
   color: #0c0c0c;
@@ -36,4 +45,29 @@ code {
 }
 .banner-area {
   margin-top: 0;
+}
+.irs-grid-text,
+.irs-grid-pol {
+  color: white;
+  font-weight: bolder;
+}
+
+.primary-btn {
+  border-radius: 0px;
+  background: #c92927;
+}
+.onoffswitch3-active .onoffswitch3-switch {
+  background: #c92927;
+}
+.onoffswitch3-inactive .onoffswitch3-switch {
+  background: #c92927;
+}
+.images span {
+  background: #c92927;
+}
+p {
+  font-weight: bolder;
+}
+.align-items-end {
+  align-items: center !important;
 }
