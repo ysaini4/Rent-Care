@@ -10,7 +10,7 @@ class AddProperty extends Component {
       { id: 2, lable: "Commercial Property" },
       { id: 3, lable: "Residential Property" }
     ],
-    selectedComponentId: 1
+    selectedComponentId: 0
   };
   selectProperty(input) {
     this.setState({ selectedComponentId: parseInt(input.value) });
