@@ -1,6 +1,8 @@
 import React from "react";
 import Input from "../common/input";
 import Radio from "../common/radio";
+import StateDist from "../common/stateDist";
+
 const Commercial = () => {
   return (
     <form className="needs-validation" noValidate>
@@ -94,25 +96,7 @@ const Commercial = () => {
             valid={true}
           />
         </div>
-        <div className="col-md-4 mb-3">
-          <Input
-            id="district"
-            type="text"
-            label="District"
-            required={true}
-            valid={true}
-          />
-        </div>
-
-        <div className="col-md-4 mb-3">
-          <Input
-            id="state"
-            type="text"
-            label="State"
-            required={true}
-            valid={true}
-          />
-        </div>
+        <StateDist />
         <div className="col-md-4 mb-3">
           <Input
             id="approxArea"
