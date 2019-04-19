@@ -4,12 +4,14 @@ import Select from "../common/select";
 import Radio from "../common/radio";
 import StateDist from "../common/stateDist";
 import {
-  selectFields,
-  ptype,
-  textFileds,
+  rselectFields,
+  rPtype,
+  cmrtextFileds,
   textFileds2,
-  windowView,
-  facilities,
+  textFileds3,
+  rwindowView,
+  rfacilities,
+  imageFiled,
   nearBy
 } from "../../utility/common";
 
@@ -17,7 +19,7 @@ const Residential = () => {
   return (
     <form className="needs-validation" noValidate>
       <div className="form-row">
-        {ptype.map(item => {
+        {rPtype.map(item => {
           return (
             <div className="mb-3 custom-radio custom-control mr-3">
               <Radio
@@ -33,7 +35,7 @@ const Residential = () => {
         })}
       </div>
       <div className="form-row">
-        {textFileds.map(item => {
+        {cmrtextFileds.map(item => {
           return (
             <div className="col-md-4 mb-3">
               <Input
@@ -47,7 +49,20 @@ const Residential = () => {
           );
         })}
         <StateDist />
-        {selectFields.map(item => {
+        {textFileds3.map(item => {
+          return (
+            <div className="col-md-4 mb-3">
+              <Input
+                id={item.id}
+                type={item.type}
+                label={item.label}
+                required={true}
+                valid={true}
+              />
+            </div>
+          );
+        })}
+        {rselectFields.map(item => {
           return (
             <div className="col-md-4 mb-3">
               <Select
@@ -74,11 +89,25 @@ const Residential = () => {
             </div>
           );
         })}
+        {imageFiled.map(item => {
+          return (
+            <div className="col-md-4 mb-3">
+              <Input
+                id={item.id}
+                type={item.type}
+                label={item.label}
+                required={true}
+                valid={true}
+                placeholder={item.placeholder}
+              />
+            </div>
+          );
+        })}
       </div>
 
       <label style={{ fontWeight: "bolder" }}>Window Side View</label>
       <div className="form-row">
-        {windowView.map(item => {
+        {rwindowView.map(item => {
           return (
             <div className="mb-3 custom-checkbox custom-control mr-3">
               <Radio
@@ -95,7 +124,7 @@ const Residential = () => {
       </div>
       <label style={{ fontWeight: "bolder" }}>Facility</label>
       <div className="form-row">
-        {facilities.map(item => {
+        {rfacilities.map(item => {
           return (
             <div className="mb-3 custom-checkbox custom-control mr-3">
               <Radio
@@ -110,7 +139,9 @@ const Residential = () => {
           );
         })}
       </div>
-      <label style={{ fontWeight: "bolder" }}>Near By</label>
+      <label style={{ fontWeight: "bolder" }}>
+        Near By(Under 5 Kilometers)
+      </label>
       <div className="form-row">
         {nearBy.map(item => {
           return (

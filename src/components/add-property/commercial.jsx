@@ -2,137 +2,142 @@ import React from "react";
 import Input from "../common/input";
 import Radio from "../common/radio";
 import StateDist from "../common/stateDist";
+import Select from "../common/select";
 
+import {
+  cmcrPtype,
+  cmrtextFileds,
+  textFileds3,
+  cmcrSelectFields,
+  textFileds2,
+  imageFiled,
+  cmcrFacilities,
+  nearBy
+} from "../../utility/common";
 const Commercial = () => {
   return (
     <form className="needs-validation" noValidate>
       <div className="form-row">
-        <div className="mb-3 custom-radio custom-control mr-3">
-          <Radio
-            type="radio"
-            id="rad1"
-            name="ptype"
-            label="Office"
-            feedback=""
-            required={true}
-          />
-        </div>
-        <div className="mb-3 custom-radio custom-control mr-3">
-          <Radio
-            type="radio"
-            id="rad4"
-            name="ptype"
-            label="Shop"
-            feedback=""
-            required={true}
-          />
-        </div>
-        <div className="mb-3 custom-control custom-radio mr-3">
-          <Radio
-            type="radio"
-            id="rad2"
-            name="ptype"
-            label="WareHouse"
-            feedback=""
-            required={true}
-          />
-        </div>
-        <div className="mb-3 custom-control custom-radio mr-3">
-          <Radio
-            type="radio"
-            id="rad3"
-            name="ptype"
-            label="FreeLand"
-            feedback=""
-            required={true}
-          />
-        </div>
+        {cmcrPtype.map(item => {
+          return (
+            <div className="mb-3 custom-radio custom-control mr-3">
+              <Radio
+                type="radio"
+                id={item.id}
+                name="rtype"
+                label={item.label}
+                feedback=""
+                required={true}
+              />
+            </div>
+          );
+        })}
       </div>
       <div className="form-row">
-        <div className="col-md-4 mb-3">
-          <Input
-            id="name"
-            type="text"
-            label="Name"
-            required={true}
-            valid={true}
-          />
-        </div>
-
-        <div className="col-md-4 mb-3">
-          <Input
-            id="email"
-            type="email"
-            label="Email"
-            required={true}
-            valid={true}
-          />
-        </div>
-        <div className="col-md-4 mb-3">
-          <Input
-            id="mobile"
-            type="number"
-            label="Mobile"
-            required={true}
-            valid={true}
-          />
-        </div>
-
-        <div className="col-md-4 mb-3">
-          <Input
-            id="location"
-            type="text"
-            label="Location"
-            required={true}
-            valid={true}
-          />
-        </div>
-        <div className="col-md-4 mb-3">
-          <Input
-            id="city"
-            type="text"
-            label="City"
-            required={true}
-            valid={true}
-          />
-        </div>
+        {cmrtextFileds.map(item => {
+          return (
+            <div className="col-md-4 mb-3">
+              <Input
+                id={item.id}
+                type={item.type}
+                label={item.label}
+                required={true}
+                valid={true}
+              />
+            </div>
+          );
+        })}
         <StateDist />
-        <div className="col-md-4 mb-3">
-          <Input
-            id="approxArea"
-            type="text"
-            label="Approx Area"
-            required={true}
-            valid={true}
-          />
-        </div>
-        <div className="col-md-4 mb-3">
-          <Input
-            id="budget"
-            type="text"
-            label="Budget"
-            required={true}
-            valid={true}
-          />
-        </div>
-        <div className="col-md-4 mb-3">
-          <Input
-            id="facing"
-            type="text"
-            label="Facing"
-            required={true}
-            valid={true}
-          />
-        </div>
-        <div className="col-md-4 mb-3">
-          <Input
-            id="floor"
-            type="text"
-            label="Floor"
-            required={true}
-            valid={true}
-          />
-        </div>
+        {textFileds3.map(item => {
+          return (
+            <div className="col-md-4 mb-3">
+              <Input
+                id={item.id}
+                type={item.type}
+                label={item.label}
+                required={true}
+                valid={true}
+              />
+            </div>
+          );
+        })}
+        {cmcrSelectFields.map(item => {
+          return (
+            <div className="col-md-4 mb-3">
+              <Select
+                id={item.id}
+                label={item.label}
+                required={true}
+                valid={true}
+                options={item.options}
+              />
+            </div>
+          );
+        })}
+        {textFileds2.map(item => {
+          return (
+            <div className="col-md-4 mb-3">
+              <Input
+                id={item.id}
+                type={item.type}
+                label={item.label}
+                required={true}
+                valid={true}
+                placeholder={item.placeholder}
+              />
+            </div>
+          );
+        })}
+        {imageFiled.map(item => {
+          return (
+            <div className="col-md-4 mb-3">
+              <Input
+                id={item.id}
+                type={item.type}
+                label={item.label}
+                required={true}
+                valid={true}
+                placeholder={item.placeholder}
+              />
+            </div>
+          );
+        })}
+      </div>
+      <label style={{ fontWeight: "bolder" }}>Facility</label>
+      <div className="form-row">
+        {cmcrFacilities.map(item => {
+          return (
+            <div className="mb-3 custom-checkbox custom-control mr-3">
+              <Radio
+                type="checkbox"
+                id={item.id}
+                name="rtype"
+                label={item.label}
+                feedback=""
+                required={true}
+              />
+            </div>
+          );
+        })}
+      </div>
+      <label style={{ fontWeight: "bolder" }}>
+        Near By(Under 5 Kilometers)
+      </label>
+      <div className="form-row">
+        {nearBy.map(item => {
+          return (
+            <div className="mb-3 custom-checkbox custom-control mr-3">
+              <Radio
+                type="checkbox"
+                id={item.id}
+                name="rtype"
+                label={item.label}
+                feedback=""
+                required={true}
+              />
+            </div>
+          );
+        })}
       </div>
 
       <button className="btn btn-primary" type="submit">

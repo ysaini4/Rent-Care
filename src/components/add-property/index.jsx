@@ -8,7 +8,10 @@ class AddProperty extends Component {
       { id: 0, lable: "Select Property Type" },
       { id: 1, lable: "Corporate Property" },
       { id: 2, lable: "Commercial Property" },
-      { id: 3, lable: "Residential Property" }
+      { id: 3, lable: "Residential Property" },
+      { id: 4, lable: "PG" },
+      { id: 5, lable: "Hotel" },
+      { id: 6, lable: "Restaurant" }
     ],
     selectedComponentId: 0
   };

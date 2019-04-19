@@ -5,21 +5,21 @@ import Select from "../common/select";
 
 import StateDist from "../common/stateDist";
 import {
-  cmcrPtype,
-  crTextFileds,
+  pgtype,
+  pgTextFileds,
   textFileds3,
-  cmcrSelectFields,
-  textFileds2,
+  pgSelectFields,
+  pgTextFileds2,
+  pgTextFileds3,
   imageFiled,
-  crpropstsSelect,
-  cmcrFacilities,
+  pgFacilities,
   nearBy
 } from "../../utility/common";
-const Corporate = props => {
+const PG = props => {
   return (
     <form className="needs-validation" noValidate>
       <div className="form-row">
-        {cmcrPtype.map(item => {
+        {pgtype.map(item => {
           return (
             <div className="mb-3 custom-radio custom-control mr-3">
               <Radio
@@ -35,7 +35,7 @@ const Corporate = props => {
         })}
       </div>
       <div className="form-row">
-        {crTextFileds.map(item => {
+        {pgTextFileds.map(item => {
           return (
             <div className="col-md-4 mb-3">
               <Input
@@ -63,7 +63,7 @@ const Corporate = props => {
           );
         })}
 
-        {cmcrSelectFields.map(item => {
+        {pgSelectFields.map(item => {
           return (
             <div className="col-md-4 mb-3">
               <Select
@@ -76,7 +76,7 @@ const Corporate = props => {
             </div>
           );
         })}
-        {textFileds2.map(item => {
+        {pgTextFileds2.map(item => {
           return (
             <div className="col-md-4 mb-3">
               <Input
@@ -90,15 +90,16 @@ const Corporate = props => {
             </div>
           );
         })}
-        {crpropstsSelect.map(item => {
+        {pgTextFileds3.map(item => {
           return (
             <div className="col-md-4 mb-3">
-              <Select
+              <Input
                 id={item.id}
+                type={item.type}
                 label={item.label}
                 required={true}
                 valid={true}
-                options={item.options}
+                placeholder={item.placeholder}
               />
             </div>
           );
@@ -120,7 +121,7 @@ const Corporate = props => {
       </div>
       <label style={{ fontWeight: "bolder" }}>Facility</label>
       <div className="form-row">
-        {cmcrFacilities.map(item => {
+        {pgFacilities.map(item => {
           return (
             <div className="mb-3 custom-checkbox custom-control mr-3">
               <Radio
@@ -162,4 +163,4 @@ const Corporate = props => {
   );
 };
 
-export default Corporate;
+export default PG;

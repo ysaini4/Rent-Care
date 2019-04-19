@@ -5,37 +5,19 @@ import Select from "../common/select";
 
 import StateDist from "../common/stateDist";
 import {
-  cmcrPtype,
-  crTextFileds,
+  hTextFileds,
   textFileds3,
-  cmcrSelectFields,
-  textFileds2,
+  hSelectFields,
+  pgTextFileds3,
   imageFiled,
-  crpropstsSelect,
-  cmcrFacilities,
+  hFacilities,
   nearBy
 } from "../../utility/common";
-const Corporate = props => {
+const Hotel = props => {
   return (
     <form className="needs-validation" noValidate>
       <div className="form-row">
-        {cmcrPtype.map(item => {
-          return (
-            <div className="mb-3 custom-radio custom-control mr-3">
-              <Radio
-                type="radio"
-                id={item.id}
-                name="rtype"
-                label={item.label}
-                feedback=""
-                required={true}
-              />
-            </div>
-          );
-        })}
-      </div>
-      <div className="form-row">
-        {crTextFileds.map(item => {
+        {hTextFileds.map(item => {
           return (
             <div className="col-md-4 mb-3">
               <Input
@@ -63,7 +45,7 @@ const Corporate = props => {
           );
         })}
 
-        {cmcrSelectFields.map(item => {
+        {hSelectFields.map(item => {
           return (
             <div className="col-md-4 mb-3">
               <Select
@@ -76,7 +58,7 @@ const Corporate = props => {
             </div>
           );
         })}
-        {textFileds2.map(item => {
+        {pgTextFileds3.map(item => {
           return (
             <div className="col-md-4 mb-3">
               <Input
@@ -86,19 +68,6 @@ const Corporate = props => {
                 required={true}
                 valid={true}
                 placeholder={item.placeholder}
-              />
-            </div>
-          );
-        })}
-        {crpropstsSelect.map(item => {
-          return (
-            <div className="col-md-4 mb-3">
-              <Select
-                id={item.id}
-                label={item.label}
-                required={true}
-                valid={true}
-                options={item.options}
               />
             </div>
           );
@@ -120,7 +89,7 @@ const Corporate = props => {
       </div>
       <label style={{ fontWeight: "bolder" }}>Facility</label>
       <div className="form-row">
-        {cmcrFacilities.map(item => {
+        {hFacilities.map(item => {
           return (
             <div className="mb-3 custom-checkbox custom-control mr-3">
               <Radio
@@ -162,4 +131,4 @@ const Corporate = props => {
   );
 };
 
-export default Corporate;
+export default Hotel;
