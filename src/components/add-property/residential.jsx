@@ -16,6 +16,8 @@ import {
 } from "../../utility/common";
 
 const Residential = () => {
+  let type = "residential";
+
   return (
     <form className="needs-validation" noValidate>
       <div className="form-row">

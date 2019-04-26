@@ -5,7 +5,7 @@ import StateDist from "../common/stateDist";
 import Select from "../common/select";
 
 import {
-  cmcrPtype,
+  Ptype,
   cmrtextFileds,
   textFileds3,
   cmcrSelectFields,
@@ -15,10 +15,11 @@ import {
   nearBy
 } from "../../utility/common";
 const Commercial = () => {
+  let type = "commercial";
   return (
     <form className="needs-validation" noValidate>
       <div className="form-row">
-        {cmcrPtype.map(item => {
+        {Ptype(type).map(item => {
           return (
             <div className="mb-3 custom-radio custom-control mr-3">
               <Radio

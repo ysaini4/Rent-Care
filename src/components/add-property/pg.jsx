@@ -16,6 +16,8 @@ import {
   nearBy
 } from "../../utility/common";
 const PG = props => {
+  let type = "pg";
+
   return (
     <form className="needs-validation" noValidate>
       <div className="form-row">

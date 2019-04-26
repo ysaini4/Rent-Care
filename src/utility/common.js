@@ -17,12 +17,16 @@ export const rPtype = [
   { label: "Pvt. Villas", id: "pvtvillas" },
   { label: "Farm House", id: "farmhouse" }
 ];
-export const cmcrPtype = [
+const cmcrPtype = [
   { label: "Office", id: "office" },
   { label: "Retail Outlet", id: "retailoutlet" },
   { label: "WareHouse", id: "wareHouse" },
   { label: "FreeLand", id: "freeLand" }
 ];
+export const Ptype = type => {
+  if (type === "corporate" || type === "commercial") return cmcrPtype;
+  if (type === "residential") return rPtype;
+};
 export const pgtype = [
   { label: "Boys", id: "boys" },
   { label: "Girls", id: "girls" }
@@ -55,19 +59,28 @@ export const textFileds3 = [
   { label: "City", id: "city", type: "text" },
   { label: "Location", id: "location", type: "text" }
 ];
-export const crTextFileds = [
+const crTextFileds = [
   { label: "Company Name", id: "name", type: "text" },
   { label: "Refrance Name", id: "rname", type: "text" },
   { label: "Designation", id: "designation", type: "text" },
   { label: "Email", id: "email", type: "email" },
-  { label: "Mobile", id: "mobile", type: "number" }
+  { label: "Mobile", id: "mobile", type: "number" },
+  { custom: "stateDist" }
 ];
+export const textFields = type => {
+  if (type === "corporate") {
+    return [...crTextFileds];
+  }
+};
 export const imageFiled = [{ label: "Image", id: "image", type: "file" }];
 export const pgTextFileds = [
   { label: "PG Name", id: "pgname", type: "text" },
   { label: "Refrance Person", id: "rperson", type: "text" },
   { label: "Email", id: "email", type: "email" },
   { label: "Mobile", id: "mobile", type: "number" }
+];
+export const rrtextFileds = [
+  { label: "Restaurant Name", id: "restaurantname", type: "text" }
 ];
 export const hTextFileds = [
   { label: "Hotel Name", id: "hotelname", type: "text" },

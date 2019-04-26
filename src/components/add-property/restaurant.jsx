@@ -14,6 +14,8 @@ import {
   nearBy
 } from "../../utility/common";
 const Restaurant = props => {
+  let type = "restaurant";
+
   return (
     <form className="needs-validation" noValidate>
       <div className="form-row">

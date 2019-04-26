@@ -5,8 +5,8 @@ import Select from "../common/select";
 
 import StateDist from "../common/stateDist";
 import {
-  cmcrPtype,
-  crTextFileds,
+  Ptype,
+  textFields,
   textFileds3,
   cmcrSelectFields,
   textFileds2,
@@ -16,10 +16,12 @@ import {
   nearBy
 } from "../../utility/common";
 const Corporate = props => {
+  let type = "corporate";
+
   return (
     <form className="needs-validation" noValidate>
       <div className="form-row">
-        {cmcrPtype.map(item => {
+        {Ptype(type).map(item => {
           return (
             <div className="mb-3 custom-radio custom-control mr-3">
               <Radio
@@ -35,7 +37,7 @@ const Corporate = props => {
         })}
       </div>
       <div className="form-row">
-        {crTextFileds.map(item => {
+        {textFields(type).map(item => {
           return (
             <div className="col-md-4 mb-3">
               <Input
