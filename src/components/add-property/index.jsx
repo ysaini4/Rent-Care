@@ -1,18 +1,10 @@
 import React, { Component } from "react";
 import Banner from "./banner";
 import SelectedProperty from "./selectedProperty";
-
+import { propertyTypes } from "../../utility/common";
 class AddProperty extends Component {
   state = {
-    propertyType: [
-      { id: 0, lable: "Select Property Type" },
-      { id: 1, lable: "Corporate Property" },
-      { id: 2, lable: "Commercial Property" },
-      { id: 3, lable: "Residential Property" },
-      { id: 4, lable: "PG" },
-      { id: 5, lable: "Hotel" },
-      { id: 6, lable: "Restaurant" }
-    ],
+    propertyType: propertyTypes(),
     selectedComponentId: 0
   };
   selectProperty(input) {
