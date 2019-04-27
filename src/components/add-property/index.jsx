@@ -1,10 +1,11 @@
 import React, { Component } from "react";
 import Banner from "./banner";
-import SelectedProperty from "./selectedProperty";
-import { propertyTypes } from "../../utility/common";
+import { propertyTypes } from "./designData";
+import AddPropertyForm from "./addpropertyform";
+
 class AddProperty extends Component {
   state = {
-    propertyType: propertyTypes(),
+    propertyType: propertyTypes,
     selectedComponentId: 0
   };
   selectProperty(input) {
@@ -30,7 +31,7 @@ class AddProperty extends Component {
                 </option>
               ))}
             </select>
-            <SelectedProperty componentId={this.state.selectedComponentId} />
+            <AddPropertyForm pTypeId={this.state.selectedComponentId} />
           </div>
         </section>
       </React.Fragment>
