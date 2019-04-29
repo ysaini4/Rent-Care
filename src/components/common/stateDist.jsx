@@ -45,25 +45,27 @@ class StateDist extends Component {
         <div className="col-md-4 mb-3">
           <Select
             id="state"
-            name="state"
+            name="State"
             label="State"
             required={true}
             valid={true}
             oType="optionlist"
             onChange={this.changeState}
             options={this.stateOptions()}
+            feedback="Required."
           />
         </div>
         <div className="col-md-4 mb-3">
           <Select
             id="district"
-            name="dist"
+            name="District"
             label="District"
             required={true}
             valid={true}
             oType="optionlist"
             onChange={this.changeDist}
             options={this.distOptions()}
+            feedback="Required."
           />
         </div>
       </React.Fragment>

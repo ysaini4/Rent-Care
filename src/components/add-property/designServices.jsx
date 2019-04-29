@@ -45,6 +45,32 @@ export const getFormRow = (type, pField) => {
   }
   return null;
 };
+export const getFormData = (data, type) => {
+  let returnData = { Property: type };
+  let checkboxfields = otherCheckBox(type);
+  checkboxfields.forEach(item => {
+    returnData[item.id] = [];
+  });
+  const formData = new FormData(data);
+  for (let pair of formData.entries()) {
+    let checkBoxId = checkForCheckBox(pair, checkboxfields);
+    if (!checkBoxId) returnData[pair[0]] = pair[1];
+    else returnData[checkBoxId][pair[0]] = pair[1];
+  }
+  return returnData;
+};
+/******************************** Private Methods **************************/
+const checkForCheckBox = (pair, checkboxfields) => {
+  let checkBox = checkboxfields.find(cItem => {
+    let ischeckBox = cItem.checkBoxes.find(item => {
+      return item.name === pair[0];
+    });
+    if (ischeckBox) return true;
+    return false;
+  });
+  if (checkBox) return checkBox.id;
+  return null;
+};
 const typeRow1 = (type, pField) => {
   return (
     <div className="form-row" key={pField}>

@@ -1,12 +1,13 @@
 import React from "react";
 const Radio = props => {
-  const { id, type, required, name, label, feedback } = props;
+  const { id, type, required, name, value, label, feedback } = props;
   return (
     <React.Fragment>
       <input
         type={type}
         className="custom-control-input"
         id={id}
+        value={value}
         name={name}
         required={required}
       />

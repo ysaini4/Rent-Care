@@ -2,16 +2,19 @@ import React from "react";
 const Select = props => {
   const {
     id,
+    value,
     options,
     name,
     label,
     required,
-    valid,
     feedback,
-    oType = "array",
-    onChange
+    oType = "array"
   } = props;
+  let { onChange } = props;
   let sOptions;
+  if (!onChange) {
+    onChange = () => {};
+  }
   if (oType === "array") {
     sOptions = options.map(pItem => (
       <option key={pItem} value={pItem}>
@@ -26,6 +29,7 @@ const Select = props => {
       <label htmlFor={id}>{label}</label>
       <select
         id={id}
+        value={value}
         className="form-control"
         name={name}
         required={required}
@@ -34,11 +38,8 @@ const Select = props => {
         <option value="" />
         {sOptions}
       </select>
-      {valid ? (
-        <div className="valid-feedback">{feedback}</div>
-      ) : (
-        <div className="invalid-feedback">{feedback}</div>
-      )}
+      {/* <div className="valid-feedback">{feedback}</div> */}
+      <div className="invalid-feedback">{feedback}</div>
     </React.Fragment>
   );
 };

@@ -20,10 +20,12 @@ export const renderInput = item => {
     input = (
       <Select
         id={item.id}
+        name={item.name}
         label={item.label}
-        required={true}
-        valid={true}
+        required={item.required}
+        value={item.value}
         options={item.options}
+        feedback={item.feedback}
       />
     );
   } else if (item.type === "radio" || item.type === "checkbox") {
@@ -31,20 +33,23 @@ export const renderInput = item => {
       <Radio
         type={item.type}
         id={item.id}
+        value={item.value}
         name={item.name}
         label={item.label}
-        feedback=""
-        required={true}
+        required={item.required}
+        feedback={item.feedback}
       />
     );
   } else {
     input = (
       <Input
         id={item.id}
+        name={item.name}
         type={item.type}
         label={item.label}
-        required={true}
-        valid={true}
+        value={item.value}
+        required={item.required}
+        feedback={item.feedback}
         placeholder={item.placeholder}
       />
     );

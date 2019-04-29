@@ -1,16 +1,7 @@
 import React from "react";
 
 const Input = props => {
-  const {
-    id,
-    type,
-    name,
-    label,
-    required,
-    valid,
-    feedback,
-    placeholder
-  } = props;
+  const { id, type, name, label, required, feedback, placeholder } = props;
   return (
     <React.Fragment>
       <label htmlFor={id}>{label}</label>
@@ -22,11 +13,8 @@ const Input = props => {
         required={required}
         name={name}
       />
-      {valid ? (
-        <div className="valid-feedback">{feedback}</div>
-      ) : (
-        <div className="invalid-feedback">{feedback}</div>
-      )}
+      <div className="valid-feedback" />
+      <div className="invalid-feedback">{feedback}</div>
     </React.Fragment>
   );
 };

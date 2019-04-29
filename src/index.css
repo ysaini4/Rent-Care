@@ -13,7 +13,13 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
-
+.form-control {
+  border: #6590ba solid 1px;
+  border-radius: 0;
+  border-top: none;
+  border-right: none;
+  border-left: none;
+}
 .search-field {
   background-color: #00000085;
   border-radius: 2px;

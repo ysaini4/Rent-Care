@@ -22,27 +22,47 @@ export const Ptype = type => {
 export const otherCheckBox = type => {
   if (type === "corporate" || type === "commercial") {
     return [
-      { label: "Facility", checkBoxes: cmcrFacilities },
-      { label: "Near By(Under 5 Kilometers)", checkBoxes: nearBy }
+      { id: "Facility", label: "Facility", checkBoxes: cmcrFacilities },
+      {
+        id: "Near By",
+        label: "Near By(Under 5 Kilometers)",
+        checkBoxes: nearBy
+      }
     ];
   }
   if (type === "residential") {
     return [
-      { label: "Window Side View", checkBoxes: rwindowView },
-      { label: "Facility", checkBoxes: rfacilities },
-      { label: "Near By(Under 5 Kilometers)", checkBoxes: nearBy }
+      {
+        id: "Window Side View",
+        label: "Window Side View",
+        checkBoxes: rwindowView
+      },
+      { id: "Facility", label: "Facility", checkBoxes: rfacilities },
+      {
+        id: "Near By",
+        label: "Near By(Under 5 Kilometers)",
+        checkBoxes: nearBy
+      }
     ];
   }
   if (type === "pg") {
     return [
-      { label: "Facility", checkBoxes: pgFacilities },
-      { label: "Near By(Under 5 Kilometers)", checkBoxes: nearBy }
+      { id: "Facility", label: "Facility", checkBoxes: pgFacilities },
+      {
+        id: "Near By",
+        label: "Near By(Under 5 Kilometers)",
+        checkBoxes: nearBy
+      }
     ];
   }
   if (type === "hotel" || type === "restaurant") {
     return [
-      { label: "Facility", checkBoxes: hFacilities },
-      { label: "Near By(Under 5 Kilometers)", checkBoxes: nearBy }
+      { id: "Facility", label: "Facility", checkBoxes: hFacilities },
+      {
+        id: "Near By",
+        label: "Near By(Under 5 Kilometers)",
+        checkBoxes: nearBy
+      }
     ];
   }
 };
@@ -80,6 +100,7 @@ export const textFields = type => {
       ...pgTextFileds,
       ...textFileds3,
       ...pgSelectFields,
+      ...pgSelectFields1,
       ...pgTextFileds2,
       ...pgTextFileds3,
       ...imageFiled
@@ -91,7 +112,7 @@ export const textFields = type => {
       ...hrrtextfileds,
       ...textFileds3,
       ...hSelectFields,
-      ...pgTextFileds3,
+      ...hrrTextFileds3,
       ...imageFiled
     ];
   }
@@ -101,115 +122,357 @@ export const textFields = type => {
       ...hrrtextfileds,
       ...textFileds3,
       ...rrSelectFields,
-      ...pgTextFileds3,
+      ...hrrTextFileds3,
       ...imageFiled
     ];
   }
 };
 /* property type radio  */
 const rPtype = [
-  { type: "radio", name: "ptype", label: "Flats", id: "flats" },
   {
+    value: "Flats",
+    type: "radio",
+    name: "ptype",
+    label: "Flats",
+    id: "flats"
+  },
+  {
+    value: "Individual House",
     type: "radio",
     name: "ptype",
     label: "Individual House",
     id: "individualhouse"
   },
-  { type: "radio", name: "ptype", label: "Pvt. Villas", id: "pvtvillas" },
-  { type: "radio", name: "ptype", label: "Farm House", id: "farmhouse" }
+  {
+    value: "Pvt. Villas",
+    type: "radio",
+    name: "ptype",
+    label: "Pvt. Villas",
+    id: "pvtvillas"
+  },
+  {
+    value: "Farm House",
+    type: "radio",
+    name: "ptype",
+    label: "Farm House",
+    id: "farmhouse",
+    feedback: "Property Type Required"
+  }
 ];
 const cmcrPtype = [
-  { type: "radio", name: "ptype", label: "Office", id: "office" },
-  { type: "radio", name: "ptype", label: "Retail Outlet", id: "retailoutlet" },
-  { type: "radio", name: "ptype", label: "WareHouse", id: "wareHouse" },
-  { type: "radio", name: "ptype", label: "FreeLand", id: "freeLand" }
+  {
+    value: "Office",
+    type: "radio",
+    name: "ptype",
+    label: "Office",
+    id: "office",
+    required: true
+  },
+  {
+    value: "Retail Outlet",
+    type: "radio",
+    name: "ptype",
+    label: "Retail Outlet",
+    id: "retailoutlet"
+  },
+  {
+    value: "WareHouse",
+    type: "radio",
+    name: "ptype",
+    label: "WareHouse",
+    id: "wareHouse"
+  },
+  {
+    value: "FreeLand",
+    type: "radio",
+    name: "ptype",
+    label: "FreeLand",
+    id: "freeLand",
+    feedback: "Property Type Required"
+  }
 ];
 const pgtype = [
-  { type: "radio", label: "Boys", id: "boys" },
-  { type: "radio", label: "Girls", id: "girls" }
+  {
+    required: true,
+    value: "Boys",
+    type: "radio",
+    label: "Boys",
+    id: "boys"
+  },
+  {
+    value: "Girls",
+    type: "radio",
+    label: "Girls",
+    id: "girls",
+    feedback: "Pg Type Required"
+  }
 ];
 /* property type radio */
 
 /* text fileds */
-const cmrtextFileds = [{ label: "Name", id: "name", type: "text" }];
+const cmrtextFileds = [
+  {
+    feedback: "Required.",
+    required: true,
+    label: "Name",
+    id: "name",
+    type: "text",
+    name: "Name"
+  }
+];
 const crTextFileds = [
-  { label: "Company Name", id: "name", type: "text" },
-  { label: "Refrance Name", id: "rname", type: "text" },
-  { label: "Designation", id: "designation", type: "text" }
+  {
+    feedback: "Required.",
+    required: true,
+    label: "Company Name",
+    id: "cname",
+    type: "text",
+    name: "Company Name"
+  },
+  {
+    feedback: "Required.",
+    required: true,
+    label: "Refrance Name",
+    id: "rname",
+    type: "text",
+    name: "Refrance Name"
+  },
+  {
+    feedback: "Required.",
+    required: true,
+    label: "Designation",
+    id: "designation",
+    type: "text",
+    name: "Designation"
+  }
 ];
 const textFileds2 = [
   {
+    feedback: "Required.",
+    required: true,
     label: "Super Area",
     id: "superarea",
     type: "text",
+    name: "Super Area",
     placeholder: "in sq.ft"
   },
   {
+    feedback: "Required.",
+    required: true,
     label: "Carpet Area",
     id: "carpetarea",
     type: "text",
+    name: "Carpet Area",
     placeholder: "in sq.ft"
   },
-  { label: "Approx Area", id: "approxarea", type: "text" },
-  { label: "Budget", id: "budget", type: "text" }
+  {
+    feedback: "Required.",
+    required: true,
+    label: "Approx Area",
+    id: "approxarea",
+    type: "text",
+    name: "Approx Area"
+  },
+  {
+    feedback: "Required.",
+    required: true,
+    label: "Budget",
+    id: "budget",
+    type: "text",
+    name: "Budget"
+  }
 ];
 const textFileds3 = [
-  { label: "Email", id: "email", type: "email" },
-  { label: "Mobile", id: "mobile", type: "number" },
-  { custom: "stateDist" },
-  { label: "City", id: "city", type: "text" },
-  { label: "Location", id: "location", type: "text" }
+  {
+    feedback: "Required.",
+    required: true,
+    label: "Email",
+    id: "email",
+    type: "email",
+    name: "Email"
+  },
+  {
+    feedback: "Required.",
+    required: true,
+    label: "Mobile",
+    id: "mobile",
+    type: "number",
+    name: "Mobile"
+  },
+  { feedback: "Required.", required: true, custom: "stateDist" },
+  {
+    feedback: "Required.",
+    required: true,
+    label: "City",
+    id: "city",
+    type: "text",
+    name: "City"
+  },
+  {
+    feedback: "Required.",
+    required: true,
+    label: "Location",
+    id: "location",
+    type: "text",
+    name: "Location"
+  }
 ];
 
-const imageFiled = [{ label: "Image", id: "image", type: "file" }];
+const imageFiled = [
+  {
+    feedback: "Required.",
+    required: true,
+    label: "Image",
+    id: "image",
+    type: "file",
+    name: "Image"
+  }
+];
 const pgTextFileds = [
-  { label: "PG Name", id: "pgname", type: "text" },
-  { label: "Refrance Person", id: "rperson", type: "text" }
+  {
+    feedback: "Required.",
+    required: true,
+    label: "PG Name",
+    id: "pgname",
+    type: "text",
+    name: "PG Name"
+  },
+  {
+    feedback: "Required.",
+    required: true,
+    label: "Refrance Person",
+    id: "rperson",
+    type: "text",
+    name: "Refrance Person"
+  }
 ];
 const rrtextFileds = [
-  { label: "Restaurant Name", id: "restaurantname", type: "text" }
+  {
+    feedback: "Required.",
+    required: true,
+    label: "Restaurant Name",
+    id: "restaurantname",
+    type: "text",
+    name: "Restaurant Name"
+  }
 ];
-const hTextFileds = [{ label: "Hotel Name", id: "hotelname", type: "text" }];
+const hTextFileds = [
+  {
+    feedback: "Required.",
+    required: true,
+    label: "Hotel Name",
+    id: "hotelname",
+    type: "text",
+    name: "Hotel Name"
+  }
+];
 const hrrtextfileds = [
-  { label: "Refrance Person", id: "rperson", type: "text" },
-  { label: "Designation", id: "designation", type: "text" }
+  {
+    feedback: "Required.",
+    required: true,
+    label: "Refrance Person",
+    id: "rperson",
+    type: "text",
+    name: "Refrance Person"
+  },
+  {
+    feedback: "Required.",
+    required: true,
+    label: "Designation",
+    id: "designation",
+    type: "text",
+    name: "Designation"
+  }
 ];
-const pgTextFileds2 = [{ label: "Room Size", id: "roomsize", type: "text" }];
+const pgTextFileds2 = [
+  {
+    feedback: "Required.",
+    required: true,
+    label: "Room Size",
+    id: "roomsize",
+    type: "text",
+    name: "Room Size"
+  }
+];
 
-const pgTextFileds3 = [{ label: "Budget", id: "budget", type: "text" }];
+const hrrTextFileds3 = [
+  {
+    feedback: "Required.",
+    required: true,
+    label: "Budget",
+    id: "budget",
+    type: "text",
+    name: "Budget"
+  }
+];
+const pgTextFileds3 = [
+  {
+    feedback: "Required.",
+    required: true,
+    label: "Budget Only Rooms",
+    id: "budgetrooms",
+    type: "text",
+    name: "Budget Only Rooms"
+  },
+  {
+    feedback: "Required.",
+    required: true,
+    label: "Budget With All Meals",
+    id: "budgetmeal",
+    type: "text",
+    name: "Budget With All Meals"
+  }
+];
 /* text fileds */
 /* check box */
 const rwindowView = [
-  { type: "checkbox", name: "skyview", label: "Sky View", id: "skyview" },
-  { type: "checkbox", name: "poolview", label: "Pool View", id: "poolview" },
   {
     type: "checkbox",
-    name: "gardenview",
+    name: "Sky View",
+    label: "Sky View",
+    value: true,
+    id: "skyview"
+  },
+  {
+    type: "checkbox",
+    name: "Pool View",
+    label: "Pool View",
+    value: true,
+    id: "poolview"
+  },
+  {
+    type: "checkbox",
+    name: "Garden View",
     label: "Garden View",
+    value: true,
     id: "gardenview"
   },
   {
     type: "checkbox",
-    name: "parkingview",
+    name: "Parking View",
     label: "Parking View",
+    value: true,
     id: "parkingview"
   },
   {
     type: "checkbox",
-    name: "clubhouseview",
+    name: "Club House View",
     label: "Club House View",
+    value: true,
     id: "clubhouseview"
   },
   {
     type: "checkbox",
-    name: "maingateview",
+    name: "Main intrance Gate View",
     label: "Main intrance Gate View",
+    value: true,
     id: "maingateview"
   },
   {
     type: "checkbox",
-    name: "outerbuildingview",
+    name: "Outer Building View",
     label: "Outer Building View",
+    value: true,
     id: "outerbuildingview"
   }
 ];
@@ -217,88 +480,185 @@ const rfacilities = [
   {
     type: "checkbox",
     label: "Swiming Pool",
+    value: true,
     id: "swimingpool",
-    name: "swimingpool"
+    name: "Swiming Pool"
   },
-  { type: "checkbox", label: "Club House", id: "clubhouse", name: "clubhouse" },
+  {
+    type: "checkbox",
+    label: "Club House",
+    value: true,
+    id: "clubhouse",
+    name: "Club House"
+  },
   {
     type: "checkbox",
     label: "Indoor Sports",
+    value: true,
     id: "indoorsports",
-    name: "indoorsports"
+    name: "Indoor Sports"
   },
   {
     type: "checkbox",
     label: "Outdoor Sports",
+    value: true,
     id: "outdoorsports",
-    name: "outdoorsports"
+    name: "Outdoor Sports"
   },
-  { type: "checkbox", label: "Garden", id: "garden", name: "garden" },
+  {
+    type: "checkbox",
+    label: "Garden",
+    value: true,
+    id: "garden",
+    name: "Garden"
+  },
   {
     type: "checkbox",
     label: "Car Parking",
+    value: true,
     id: "carparking",
-    name: "carparking"
+    name: "Car Parking"
   },
-  { type: "checkbox", label: "Temple", id: "temple", name: "temple" },
-  { type: "checkbox", label: "School", id: "school", name: "school" },
-  { type: "checkbox", label: "Hospital", id: "hospital", name: "hospital" }
+  {
+    type: "checkbox",
+    value: true,
+    label: "Temple",
+    id: "temple",
+    name: "Temple"
+  },
+  {
+    type: "checkbox",
+    value: true,
+    label: "School",
+    id: "school",
+    name: "School"
+  },
+  {
+    type: "checkbox",
+    value: true,
+    label: "Hospital",
+    id: "hospital",
+    name: "Hospital"
+  }
 ];
 const cmcrFacilities = [
   {
+    value: true,
     label: "Car Parking",
     id: "carparking",
     type: "checkbox",
-    name: "carparking"
+    name: "Car Parking"
   },
-  { label: "Water 24hr", id: "water24hr", type: "checkbox", name: "water24hr" }
+  {
+    value: true,
+    label: "Water 24hr",
+    id: "water24hr",
+    type: "checkbox",
+    name: "Water 24hr"
+  }
 ];
 const pgFacilities = [
-  { type: "checkbox", label: "Gim", id: "gim", name: "gim" },
-  { type: "checkbox", label: "Pool", id: "pool", name: "pool" },
-  { type: "checkbox", label: "Sports", id: "sports", name: "sports" },
-  { type: "checkbox", label: "Parking", id: "parking", name: "parking" },
+  { type: "checkbox", label: "Gim", value: true, id: "gim", name: "Gim" },
+  { type: "checkbox", label: "Pool", value: true, id: "pool", name: "Pool" },
+  {
+    type: "checkbox",
+    label: "Sports",
+    value: true,
+    id: "sports",
+    name: "Sports"
+  },
+  {
+    type: "checkbox",
+    label: "Parking",
+    value: true,
+    id: "parking",
+    name: "Parking"
+  },
   {
     type: "checkbox",
     label: "Study Table",
+    value: true,
     id: "studytable",
-    name: "studytable"
+    name: "Study Table"
   },
-  { type: "checkbox", label: "Alram", id: "alram", name: "alram" },
-  { type: "checkbox", label: "Locker", id: "locker", name: "locker" },
-  { type: "checkbox", label: "Kitchen", id: "kitchen", name: "kitchen" }
+  {
+    type: "checkbox",
+    label: "Alram",
+    value: true,
+    id: "alram",
+    name: "Alram"
+  },
+  {
+    type: "checkbox",
+    label: "Locker",
+    value: true,
+    id: "locker",
+    name: "Locker"
+  },
+  {
+    type: "checkbox",
+    label: "Kitchen",
+    value: true,
+    id: "kitchen",
+    name: "Kitchen"
+  }
 ];
 const hFacilities = [
-  { type: "checkbox", label: "Gim", id: "gim", name: "gim" },
-  { type: "checkbox", label: "Pool", id: "pool", name: "pool" },
-  { type: "checkbox", label: "Bar", id: "bar", name: "bar" },
+  { type: "checkbox", label: "Gim", value: true, id: "gim", name: "Gim" },
+  { type: "checkbox", label: "Pool", value: true, id: "pool", name: "Pool" },
+  { type: "checkbox", label: "Bar", value: true, id: "bar", name: "Bar" },
   {
     type: "checkbox",
     label: "Banquet Hall",
+    value: true,
     id: "banquethall",
-    name: "banquethall"
+    name: "Banquet Hall"
   },
-  { type: "checkbox", label: "Kitchen", id: "kitchen", name: "kitchen" },
-  { type: "checkbox", label: "Parking", id: "parking", name: "parking" }
+  {
+    type: "checkbox",
+    label: "Kitchen",
+    value: true,
+    id: "kitchen",
+    name: "Kitchen"
+  },
+  {
+    type: "checkbox",
+    label: "Parking",
+    value: true,
+    id: "parking",
+    name: "Parking"
+  }
 ];
 
 const nearBy = [
   {
     label: "Police Station",
+    value: true,
     id: "policestation",
+    name: "Police Station",
     type: "checkbox"
   },
   {
     label: "Railway Station",
+    value: true,
     id: "railwaystation",
+    name: "Railway Station",
     type: "checkbox"
   },
   {
     label: "Metro Station",
+    value: true,
     id: "metrostation",
+    name: "Metro Station",
     type: "checkbox"
   },
-  { type: "checkbox", label: "Hospital", id: "hospital" }
+  {
+    type: "checkbox",
+    label: "Hospital",
+    value: true,
+    id: "hospital",
+    name: "Hospital"
+  }
 ];
 /* check box */
 /* select option */
@@ -315,40 +675,169 @@ const facing = [
 const apprmentType = ["1 BHK", "2 BHK", "3 BHK", "4 BHK", "5 BHK"];
 const ftype = ["Furnished", "Unfurnished"];
 const rselectFields = [
-  { label: "Having", id: "having", options: apprmentType },
-  { label: "Floor", id: "floor", options: ["Ground", ..._.range(1, 26)] },
-  { label: "Badrooms", id: "badrooms", options: _.range(1, 6) },
-  { label: "Bathrooms", id: "bathrooms", options: _.range(1, 6) },
-  { label: "Balcony", id: "balcony", options: _.range(1, 6) },
-  { label: "Furnish Type", id: "ftype", options: ftype },
-  { label: "Facing", id: "facing", options: facing }
+  {
+    feedback: "Required.",
+    required: true,
+    label: "Having",
+    id: "having",
+    name: "having",
+    options: apprmentType
+  },
+  {
+    feedback: "Required.",
+    required: true,
+    label: "Floor",
+    id: "floor",
+    name: "Floor",
+    options: ["Ground", ..._.range(1, 26)]
+  },
+  {
+    feedback: "Required.",
+    required: true,
+    label: "Badrooms",
+    id: "badrooms",
+    name: "Badrooms",
+    options: _.range(1, 6)
+  },
+  {
+    feedback: "Required.",
+    required: true,
+    label: "Bathrooms",
+    id: "bathrooms",
+    name: "Bathrooms",
+    options: _.range(1, 6)
+  },
+  {
+    feedback: "Required.",
+    required: true,
+    label: "Balcony",
+    id: "balcony",
+    name: "Balcony",
+    options: _.range(1, 6)
+  },
+  {
+    feedback: "Required.",
+    required: true,
+    label: "Furnish Type",
+    id: "ftype",
+    name: "Furnish Type",
+    options: ftype
+  },
+  {
+    feedback: "Required.",
+    required: true,
+    label: "Facing",
+    id: "facing",
+    name: "Facing",
+    options: facing
+  }
 ];
 const crpropstsSelect = [
   {
+    feedback: "Required.",
+    required: true,
     label: "Property Status",
     id: "propertystatus",
+    name: "Property Status",
     options: ["Approved", "Non Approved"]
   }
 ];
 const cmcrSelectFields = [
-  { label: "Floor", id: "floor", options: ["Ground", ..._.range(1, 26)] },
-  { label: "Facing", id: "facing", options: facing }
+  {
+    feedback: "Required.",
+    required: true,
+    label: "Floor",
+    id: "floor",
+    name: "Floor",
+    options: ["Ground", ..._.range(1, 26)]
+  },
+  {
+    feedback: "Required.",
+    required: true,
+    label: "Facing",
+    id: "facing",
+    name: "Facing",
+    options: facing
+  }
 ];
 const pgSelectFields = [
-  { label: "No.of Rooms", id: "noorooms", options: _.range(1, 6) }
+  {
+    feedback: "Required.",
+    required: true,
+    label: "No.of Rooms",
+    id: "noorooms",
+    name: "No.of Rooms",
+    options: _.range(1, 25)
+  }
+];
+const pgSelectFields1 = [
+  {
+    feedback: "Required.",
+    required: true,
+    label: "Single Sharing Rooms",
+    id: "ssrooms",
+    name: "Single Sharing Rooms",
+    options: _.range(1, 25)
+  },
+  {
+    feedback: "Required.",
+    required: true,
+    label: "Double Sharing Rooms",
+    id: "dsrooms",
+    name: "Double Sharing Rooms",
+    options: _.range(1, 25)
+  },
+  {
+    feedback: "Required.",
+    required: true,
+    label: "Triple Sharing Rooms",
+    id: "tsrooms",
+    name: "Triple Sharing Rooms",
+    options: _.range(1, 25)
+  },
+  {
+    feedback: "Required.",
+    required: true,
+    label: "Four Sharing Rooms",
+    id: "fsrooms",
+    name: "Four Sharing Rooms",
+    options: _.range(1, 25)
+  }
 ];
 const hSelectFields = [
-  { label: "No.of Rooms", id: "noorooms", options: _.range(1, 6) },
-  { label: "Hotel Type", id: "hoteltype", options: ["Single", "DBL", "Sweet"] }
+  {
+    feedback: "Required.",
+    required: true,
+    label: "No.of Rooms",
+    id: "noorooms",
+    name: "No.of Rooms",
+    options: _.range(1, 6)
+  },
+  {
+    feedback: "Required.",
+    required: true,
+    label: "Hotel Type",
+    id: "hoteltype",
+    name: "Hotel Type",
+    options: ["Budget", "3-Star", "4-Star", "5-Star", "7-Star"]
+  }
 ];
 const rrSelectFields = [
-  { label: "No.of Rooms", id: "noorooms", options: _.range(1, 6) },
   {
+    feedback: "Required.",
+    required: true,
     label: "Restaurant Type",
     id: "restauranttype",
-    options: ["Safe", "DBL", "Sweet"]
+    name: "Restaurant Type",
+    options: ["Budget", "3-Star", "4-Star", "5-Star", "7-Star"]
   },
-
-  { label: "Seatry", id: "seatry", options: [20, 50, 100, 150] }
+  {
+    feedback: "Required.",
+    required: true,
+    label: "Seatry",
+    id: "seatry",
+    name: "Seatry",
+    options: [20, 50, 100, 150]
+  }
 ];
 /* select option */
