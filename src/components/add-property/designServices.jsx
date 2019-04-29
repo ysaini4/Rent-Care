@@ -52,12 +52,13 @@ export const getFormData = (data, type) => {
     returnData[item.id] = [];
   });
   const formData = new FormData(data);
+  console.log(formData);
   for (let pair of formData.entries()) {
     let checkBoxId = checkForCheckBox(pair, checkboxfields);
     if (!checkBoxId) returnData[pair[0]] = pair[1];
     else returnData[checkBoxId][pair[0]] = pair[1];
   }
-  return returnData;
+  return formData;
 };
 /******************************** Private Methods **************************/
 const checkForCheckBox = (pair, checkboxfields) => {

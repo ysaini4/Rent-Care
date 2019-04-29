@@ -5,14 +5,20 @@ import {
   getProperyFields,
   getFormData
 } from "./designServices";
+import { postProperty } from "../../services/property";
 class AddPropertyForm extends Component {
   state = {};
-  handleSubmit = (e, type) => {
+  handleSubmit = async (e, type) => {
     e.preventDefault();
     const form = e.currentTarget;
     form.classList.add("was-validated");
     const data = getFormData(e.target, type);
-    console.log(data, form.checkValidity());
+    try {
+      const res = await postProperty(data);
+      console.log(res, data);
+    } catch (e) {
+      console.log("err", e);
+    }
   };
   render() {
     let type = getPropertyType(this.props.pTypeId);
