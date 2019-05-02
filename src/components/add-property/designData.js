@@ -10,7 +10,7 @@ export const propertyTypes = [
   { id: 1, lable: "Corporate Property", type: "corporate" },
   { id: 2, lable: "Commercial Property", type: "commercial" },
   { id: 3, lable: "Residential Property", type: "residential" },
-  { id: 4, lable: "PG", type: "pg" },
+  { id: 4, lable: "PG/Hostel", type: "pg" },
   { id: 5, lable: "Hotel", type: "hotel" },
   { id: 6, lable: "Restaurant", type: "restaurant" }
 ];
@@ -132,28 +132,28 @@ const rPtype = [
   {
     value: "Flats",
     type: "radio",
-    name: "ptype",
+    name: "Ptype",
     label: "Flats",
     id: "flats"
   },
   {
     value: "Individual House",
     type: "radio",
-    name: "ptype",
+    name: "Ptype",
     label: "Individual House",
     id: "individualhouse"
   },
   {
     value: "Pvt. Villas",
     type: "radio",
-    name: "ptype",
+    name: "Ptype",
     label: "Pvt. Villas",
     id: "pvtvillas"
   },
   {
     value: "Farm House",
     type: "radio",
-    name: "ptype",
+    name: "Ptype",
     label: "Farm House",
     id: "farmhouse",
     feedback: "Property Type Required"
@@ -163,7 +163,7 @@ const cmcrPtype = [
   {
     value: "Office",
     type: "radio",
-    name: "ptype",
+    name: "Ptype",
     label: "Office",
     id: "office",
     required: true
@@ -171,21 +171,21 @@ const cmcrPtype = [
   {
     value: "Retail Outlet",
     type: "radio",
-    name: "ptype",
+    name: "Ptype",
     label: "Retail Outlet",
     id: "retailoutlet"
   },
   {
     value: "WareHouse",
     type: "radio",
-    name: "ptype",
+    name: "Ptype",
     label: "WareHouse",
     id: "wareHouse"
   },
   {
     value: "FreeLand",
     type: "radio",
-    name: "ptype",
+    name: "Ptype",
     label: "FreeLand",
     id: "freeLand",
     feedback: "Property Type Required"
@@ -196,10 +196,12 @@ const pgtype = [
     required: true,
     value: "Boys",
     type: "radio",
+    name: "Ptype",
     label: "Boys",
     id: "boys"
   },
   {
+    name: "Ptype",
     value: "Girls",
     type: "radio",
     label: "Girls",
@@ -532,13 +534,6 @@ const rfacilities = [
     label: "School",
     id: "school",
     name: "School"
-  },
-  {
-    type: "checkbox",
-    value: true,
-    label: "Hospital",
-    id: "hospital",
-    name: "Hospital"
   }
 ];
 const cmcrFacilities = [
@@ -680,7 +675,7 @@ const rselectFields = [
     required: true,
     label: "Having",
     id: "having",
-    name: "having",
+    name: "Having",
     options: apprmentType
   },
   {

@@ -6,18 +6,22 @@ import {
   getFormData
 } from "./designServices";
 import { postProperty } from "../../services/property";
+import { toast } from "react-toastify";
 class AddPropertyForm extends Component {
   state = {};
   handleSubmit = async (e, type) => {
-    e.preventDefault();
-    const form = e.currentTarget;
-    form.classList.add("was-validated");
-    const data = getFormData(e.target, type);
     try {
-      const res = await postProperty(data);
-      console.log(res, data);
-    } catch (e) {
-      console.log("err", e);
+      e.preventDefault();
+      const form = e.currentTarget;
+      if (!form.checkValidity() && false) {
+        form.classList.add("was-validated");
+        const errObject = { msg: "Fill the form properly." };
+        throw errObject;
+      }
+      const data = getFormData(e.target, type);
+      await postProperty(data);
+    } catch (err) {
+      toast.error(err.msg);
     }
   };
   render() {
