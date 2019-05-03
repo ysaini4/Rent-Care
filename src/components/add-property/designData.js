@@ -2,6 +2,7 @@ import _ from "lodash";
 
 export const pFormRows = {
   typeRow1: "Ptype",
+  typeRow2: "pFor",
   textFieldsRow1: "textFields",
   checkBoxRow1: "otherCheckBox"
 };
@@ -18,6 +19,9 @@ export const Ptype = type => {
   if (type === "corporate" || type === "commercial") return cmcrPtype;
   if (type === "residential") return rPtype;
   if (type === "pg") return pgtype;
+};
+export const pFor = type => {
+  return pForAll;
 };
 export const otherCheckBox = type => {
   if (type === "corporate" || type === "commercial") {
@@ -127,6 +131,23 @@ export const textFields = type => {
     ];
   }
 };
+/* property for radio  */
+const pForAll = [
+  {
+    value: "Rent",
+    type: "radio",
+    name: "PropertyFor",
+    label: "Rent",
+    id: "rent"
+  },
+  {
+    value: "Sell",
+    type: "radio",
+    name: "PropertyFor",
+    label: "Sell",
+    id: "sell"
+  }
+];
 /* property type radio  */
 const rPtype = [
   {

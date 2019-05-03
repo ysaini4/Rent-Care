@@ -1,7 +1,8 @@
 import React from "react";
+import { firstCharCapital } from "../../utility/common";
+import { propertyBox } from "./designData";
 
-const PropertyArea = () => {
-  let a = [1, 2, 3, 4, 5];
+const PropertyArea = ({ properties }) => {
   return (
     <section className="property-area section-gap relative" id="property">
       <div className="container">
@@ -12,34 +13,57 @@ const PropertyArea = () => {
           </div>
         </div>
         <div className="row">
-          {a.map(item => {
+          {properties.map(item => {
+            let content = propertyBox(item.Property);
             return (
-              <div key={item} className="col-lg-4">
+              <div key={item._id} className="col-lg-4">
                 <div className="single-property">
                   <div className="images">
                     <img
                       className="img-fluid mx-auto d-block"
-                      src="img/s1.jpg"
+                      src={item.Image}
                       alt=""
                     />
-                    <span>For Sale</span>
+                    <span>{item.PropertyFor}</span>
                   </div>
 
                   <div className="desc">
                     <div className="top d-flex justify-content-between">
                       <h4>
-                        <a href="/">04 Bed Duplex</a>
+                        <span>{firstCharCapital(item.Property)} </span>
+                        <small> {item["Ptype"]}</small>
                       </h4>
-                      <h4>$3.5M</h4>
+                      <h4 style={{ fontFamily: "inherit" }}>
+                        &#x20b9; {item.Budget} /-
+                      </h4>
                     </div>
                     <div className="middle">
                       <div className="d-flex justify-content-start">
-                        <p>Bed: 04</p>
-                        <p>Bath: 03</p>
-                        <p>Area: 750sqm</p>
+                        {content.content1.map(cnt => {
+                          return (
+                            <p key={cnt}>
+                              {cnt}: {item[cnt]}
+                            </p>
+                          );
+                        })}
+                        {/* <p>Bath: 03</p> */}
+                        {/* <p>Area: 750sqm</p> */}
                       </div>
                       <div className="d-flex justify-content-start">
-                        <p>
+                        {content.content2.map(cnt => {
+                          if (item[cnt])
+                            return (
+                              <p key={cnt}>
+                                {cnt}: <span className="gr">Yes</span>
+                              </p>
+                            );
+                          return (
+                            <p key={cnt}>
+                              {cnt}: <span className="rd">No</span>
+                            </p>
+                          );
+                        })}
+                        {/* <p>
                           Pool: <span className="gr">Yes</span>
                         </p>
                         <p>
@@ -47,15 +71,18 @@ const PropertyArea = () => {
                         </p>
                         <p>
                           Cleaning: <span className="rd">No</span>
-                        </p>
+                        </p> */}
                       </div>
                     </div>
                     <div className="bottom d-flex justify-content-start">
                       <p>
-                        <span className="lnr lnr-heart" /> 15 Likes
+                        {/* <span className="lnr lnr-heart" />{" "} */}
+                        <button className={"btn btn-primary btn-sm"}>
+                          More Info
+                        </button>
                       </p>
                       <p>
-                        <span className="lnr lnr-bubble" /> 02 Comments
+                        {/* <span className="lnr lnr-bubble" /> 02 Comments */}
                       </p>
                     </div>
                   </div>
@@ -63,101 +90,6 @@ const PropertyArea = () => {
               </div>
             );
           })}
-
-          <div className="col-lg-4">
-            <div className="single-property">
-              <div className="images">
-                <img
-                  className="img-fluid mx-auto d-block"
-                  src="img/s2	.jpg"
-                  alt=""
-                />
-                <span>For Sale</span>
-              </div>
-
-              <div className="desc">
-                <div className="top d-flex justify-content-between">
-                  <h4>
-                    <a href="/">04 Bed Duplex</a>
-                  </h4>
-                  <h4>$3.5M</h4>
-                </div>
-                <div className="middle">
-                  <div className="d-flex justify-content-start">
-                    <p>Bed: 04</p>
-                    <p>Bath: 03</p>
-                    <p>Area: 750sqm</p>
-                  </div>
-                  <div className="d-flex justify-content-start">
-                    <p>
-                      Pool: <span className="gr">Yes</span>
-                    </p>
-                    <p>
-                      Internet: <span className="rd">No</span>
-                    </p>
-                    <p>
-                      Cleaning: <span className="rd">No</span>
-                    </p>
-                  </div>
-                </div>
-                <div className="bottom d-flex justify-content-start">
-                  <p>
-                    <span className="lnr lnr-heart" /> 15 Likes
-                  </p>
-                  <p>
-                    <span className="lnr lnr-bubble" /> 02 Comments
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="col-lg-4">
-            <div className="single-property">
-              <div className="images">
-                <img
-                  className="img-fluid mx-auto d-block"
-                  src="img/s3.jpg"
-                  alt=""
-                />
-                <span>For Sale</span>
-              </div>
-
-              <div className="desc">
-                <div className="top d-flex justify-content-between">
-                  <h4>
-                    <a href="/">04 Bed Duplex</a>
-                  </h4>
-                  <h4>$3.5M</h4>
-                </div>
-                <div className="middle">
-                  <div className="d-flex justify-content-start">
-                    <p>Bed: 04</p>
-                    <p>Bath: 03</p>
-                    <p>Area: 750sqm</p>
-                  </div>
-                  <div className="d-flex justify-content-start">
-                    <p>
-                      Pool: <span className="gr">Yes</span>
-                    </p>
-                    <p>
-                      Internet: <span className="rd">No</span>
-                    </p>
-                    <p>
-                      Cleaning: <span className="rd">No</span>
-                    </p>
-                  </div>
-                </div>
-                <div className="bottom d-flex justify-content-start">
-                  <p>
-                    <span className="lnr lnr-heart" /> 15 Likes
-                  </p>
-                  <p>
-                    <span className="lnr lnr-bubble" /> 02 Comments
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </section>

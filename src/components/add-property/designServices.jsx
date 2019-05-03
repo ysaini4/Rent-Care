@@ -7,7 +7,8 @@ import {
   pFormRows,
   Ptype,
   textFields,
-  otherCheckBox
+  otherCheckBox,
+  pFor
 } from "./designData";
 
 export const getPropertyType = pId => {
@@ -24,18 +25,26 @@ export const getProperyFields = type => {
     type === "pg"
   ) {
     return [
+      pFormRows.typeRow2,
       pFormRows.typeRow1,
       pFormRows.textFieldsRow1,
       pFormRows.checkBoxRow1
     ];
   } else if (type === "hotel" || type === "restaurant") {
-    return [pFormRows.textFieldsRow1, pFormRows.checkBoxRow1];
+    return [
+      pFormRows.typeRow2,
+      pFormRows.textFieldsRow1,
+      pFormRows.checkBoxRow1
+    ];
   }
 };
 
 export const getFormRow = (type, pField) => {
   if (pField === pFormRows.typeRow1) {
     return typeRow1(type, pField);
+  }
+  if (pField === pFormRows.typeRow2) {
+    return typeRow2(type, pField);
   }
   if (pField === pFormRows.textFieldsRow1) {
     return textFieldsRow1(type, pField);
@@ -80,6 +89,19 @@ const typeRow1 = (type, pField) => {
   return (
     <div className="form-row" key={pField}>
       {Ptype(type).map(item => {
+        return (
+          <div className="mb-3 custom-radio custom-control mr-3" key={item.id}>
+            {renderInput(item)}
+          </div>
+        );
+      })}
+    </div>
+  );
+};
+const typeRow2 = (type, pField) => {
+  return (
+    <div className="form-row" key={pField}>
+      {pFor(type).map(item => {
         return (
           <div className="mb-3 custom-radio custom-control mr-3" key={item.id}>
             {renderInput(item)}
