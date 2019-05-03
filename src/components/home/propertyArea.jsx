@@ -1,6 +1,7 @@
 import React from "react";
 import { firstCharCapital } from "../../utility/common";
 import { propertyBox } from "./designData";
+import { Link } from "react-router-dom";
 
 const PropertyArea = ({ properties }) => {
   return (
@@ -77,9 +78,12 @@ const PropertyArea = ({ properties }) => {
                     <div className="bottom d-flex justify-content-start">
                       <p>
                         {/* <span className="lnr lnr-heart" />{" "} */}
-                        <button className={"btn btn-primary btn-sm"}>
+                        <Link
+                          to={"/property/" + item._id}
+                          className={"btn btn-primary btn-sm"}
+                        >
                           More Info
-                        </button>
+                        </Link>
                       </p>
                       <p>
                         {/* <span className="lnr lnr-bubble" /> 02 Comments */}
