@@ -5,10 +5,11 @@ import {
   getProperyFields,
   getFormData
 } from "./designServices";
-import { postProperty } from "../../services/property";
+import { postProperty, generateOtp } from "../../services/property";
 import { toast } from "react-toastify";
+import Input from "../common/input";
 class AddPropertyForm extends Component {
-  state = {};
+  state = { otpSent: false };
   handleSubmit = async (e, type) => {
     try {
       e.preventDefault();
@@ -24,6 +25,11 @@ class AddPropertyForm extends Component {
       toast.error(err.msg);
     }
   };
+  generateOTP = async () => {
+    let res = await generateOtp();
+    console.log("Here", res);
+    this.setState({ otpSent: true });
+  };
   render() {
     let type = getPropertyType(this.props.pTypeId);
     if (!type) return null;
@@ -37,9 +43,37 @@ class AddPropertyForm extends Component {
         {pFields.map(item => {
           return getFormRow(type, item);
         })}
-        <button className="btn btn-primary" type="submit">
-          Submit
-        </button>
+        <div className="row">
+          {!this.state.otpSent ? (
+            <div className="col-md-12">
+              <button
+                className="btn btn-primary btn-sm"
+                type="button"
+                onClick={this.generateOTP}
+              >
+                Send OTP
+              </button>
+            </div>
+          ) : (
+            <React.Fragment>
+              <div className="col-md-4">
+                <Input name="otp" value="" placeholder="Enter Otp" />
+              </div>
+              <div className="col-md-2">
+                <a href="#">ReSend Otp</a>
+              </div>
+              <div className="col-md-12">
+                <button
+                  className="btn btn-primary btn-sm"
+                  type="submit"
+                  style={{ marginTop: 10 }}
+                >
+                  Submit
+                </button>
+              </div>
+            </React.Fragment>
+          )}
+        </div>
       </form>
     );
   }
