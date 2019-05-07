@@ -5,11 +5,12 @@ import {
   getProperyFields,
   getFormData
 } from "./designServices";
-import { postProperty, generateOtp } from "../../services/property";
+import { postProperty, generateOtp, verifyOtp } from "../../services/property";
 import { toast } from "react-toastify";
 import Input from "../common/input";
 class AddPropertyForm extends Component {
   state = { otpSent: false };
+
   handleSubmit = async (e, type) => {
     try {
       e.preventDefault();
@@ -20,18 +21,49 @@ class AddPropertyForm extends Component {
         throw errObject;
       }
       const data = getFormData(e.target, type);
-      await postProperty(data);
+      if (!this.state.otpSent) {
+        await this.generateOTP(data.get("Mobile"));
+        this.setState({ otpSent: true });
+        return;
+      } else {
+        await this.verifyOTP(data.get("Mobile"), data.get("otp"));
+      }
+      let res = await postProperty(data);
     } catch (err) {
       toast.error(err.msg);
     }
   };
-  generateOTP = async () => {
-    let res = await generateOtp();
-    console.log("Here", res);
-    this.setState({ otpSent: true });
+  verifyOTP = async (mobile, otp) => {
+    try {
+      let res = await verifyOtp({ mobile, otp });
+      if (res.type == "success") {
+        return res;
+      } else {
+        throw { msg: res.message };
+      }
+    } catch (err) {
+      throw err;
+    }
+  };
+  generateOTP = async mobile => {
+    try {
+      let res = await generateOtp({ mobile });
+      if (res.type === "success") {
+        return res;
+      } else {
+        throw { msg: res.message };
+      }
+    } catch (err) {
+      throw err;
+    }
   };
   render() {
-    let type = getPropertyType(this.props.pTypeId);
+    let type;
+    if (this.props.paramPId) {
+      type = getPropertyType(this.props.paramPId);
+    } else {
+      type = getPropertyType(this.props.pTypeId);
+    }
     if (!type) return null;
     let pFields = getProperyFields(type);
     return (
@@ -46,11 +78,7 @@ class AddPropertyForm extends Component {
         <div className="row">
           {!this.state.otpSent ? (
             <div className="col-md-12">
-              <button
-                className="btn btn-primary btn-sm"
-                type="button"
-                onClick={this.generateOTP}
-              >
+              <button className="btn btn-primary btn-sm" type="submit">
                 Send OTP
               </button>
             </div>

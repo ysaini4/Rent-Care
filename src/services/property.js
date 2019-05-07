@@ -10,8 +10,11 @@ export const searchProperty = async data => {
   return await httpService("POST", "/property/search", data);
 };
 
-export const generateOtp = async () => {
-  let url =
-    "http://control.msg91.com/api/sendotp.php?authkey=275294A6MSZJwM5ccfbcd4&message=Hi from Rent-Care.Your OTP is ##OTP##.&sender=RNTCR&mobile=8955065736";
-  return await httpService("POST", url);
+export const generateOtp = async data => {
+  let url = "/property/gotp";
+  return await httpService("POST", url, data);
+};
+export const verifyOtp = async data => {
+  let url = "/property/votp";
+  return await httpService("POST", url, data);
 };

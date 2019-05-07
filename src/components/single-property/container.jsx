@@ -2,9 +2,8 @@ import React from "react";
 import Input from "../common/input";
 import { firstCharCapital } from "../../utility/common";
 const Container = ({ pageProperty, displayFields }) => {
-  console.log(pageProperty, displayFields);
   return (
-    <section className="blog_area single-post-area p_120">
+    <section className=" single-post-area p_120">
       <div className="container">
         <div className="row mt-80">
           <div className="col-lg-8 posts-list">

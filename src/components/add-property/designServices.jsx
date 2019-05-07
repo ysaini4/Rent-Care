@@ -12,9 +12,11 @@ import {
 } from "./designData";
 
 export const getPropertyType = pId => {
-  return propertyTypes.find(item => {
+  const fRes = propertyTypes.find(item => {
     return item.id === pId;
-  }).type;
+  });
+  if (fRes) return fRes.type;
+  return null;
 };
 
 export const getProperyFields = type => {

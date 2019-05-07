@@ -45,13 +45,13 @@ const Header = () => {
                   <Link to="/addproperty">Add properties</Link>
                 </li>
                 <li>
-                  <Link to="/home">Rent properties</Link>
+                  <Link to="/addproperty/4">PG/Hostel</Link>
                 </li>
                 <li>
-                  <Link to="/home">Buy properties</Link>
+                  <Link to="/addproperty/5">Hotel</Link>
                 </li>
                 <li>
-                  <Link to="/home">Sell properties</Link>
+                  <Link to="/addproperty/6">Restaurant</Link>
                 </li>
                 {/* <li className="menu-has-children">
                   <Link to="">blog</Link>

@@ -8,10 +8,17 @@ class AddProperty extends Component {
     propertyType: propertyTypes,
     selectedComponentId: 0
   };
+
   selectProperty(input) {
     this.setState({ selectedComponentId: parseInt(input.value) });
   }
+
   render() {
+    const pId = this.props.match.params.id
+      ? parseInt(this.props.match.params.id)
+      : this.state.selectedComponentId;
+    console.log(this.props.match.params, "vvv");
+
     return (
       <React.Fragment>
         <Banner />
@@ -21,9 +28,11 @@ class AddProperty extends Component {
             <select
               className="form-control"
               style={{ marginBottom: 20 }}
+              disabled={this.props.match.params.id}
               onChange={({ currentTarget: input }) =>
                 this.selectProperty(input)
               }
+              value={pId}
             >
               {this.state.propertyType.map(pItem => (
                 <option key={pItem.id} value={pItem.id}>
@@ -31,7 +40,10 @@ class AddProperty extends Component {
                 </option>
               ))}
             </select>
-            <AddPropertyForm pTypeId={this.state.selectedComponentId} />
+            <AddPropertyForm
+              pTypeId={this.state.selectedComponentId}
+              paramPId={pId}
+            />
           </div>
         </section>
       </React.Fragment>
