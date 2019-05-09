@@ -9,7 +9,7 @@ import { postProperty, generateOtp, verifyOtp } from "../../services/property";
 import { toast } from "react-toastify";
 import Input from "../common/input";
 class AddPropertyForm extends Component {
-  state = { otpSent: false };
+  state = { otpSent: true };
 
   handleSubmit = async (e, type) => {
     try {
@@ -26,9 +26,10 @@ class AddPropertyForm extends Component {
         this.setState({ otpSent: true });
         return;
       } else {
-        await this.verifyOTP(data.get("Mobile"), data.get("otp"));
+        //await this.verifyOTP(data.get("Mobile"), data.get("otp"));
       }
       let res = await postProperty(data);
+      console.log(res, "property add");
     } catch (err) {
       toast.error(err.msg);
     }
@@ -36,10 +37,11 @@ class AddPropertyForm extends Component {
   verifyOTP = async (mobile, otp) => {
     try {
       let res = await verifyOtp({ mobile, otp });
-      if (res.type == "success") {
+      if (res.type === "success") {
         return res;
       } else {
-        throw { msg: res.message };
+        const thObj = { msg: res.message };
+        throw thObj;
       }
     } catch (err) {
       throw err;
@@ -51,7 +53,8 @@ class AddPropertyForm extends Component {
       if (res.type === "success") {
         return res;
       } else {
-        throw { msg: res.message };
+        const thObj = { msg: res.message };
+        throw thObj;
       }
     } catch (err) {
       throw err;
@@ -88,7 +91,7 @@ class AddPropertyForm extends Component {
                 <Input name="otp" value="" placeholder="Enter Otp" />
               </div>
               <div className="col-md-2">
-                <a href="#">ReSend Otp</a>
+                <a href="/">ReSend Otp</a>
               </div>
               <div className="col-md-12">
                 <button

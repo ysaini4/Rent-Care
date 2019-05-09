@@ -9,27 +9,46 @@ class StateDist extends Component {
     currentDistList: []
   };
   stateOptions = () => {
-    return this.state.stateDist.sort(sortState).map(item => {
+    let stateList = this.state.stateDist.sort(sortState).map(item => {
       return (
         <option key={item.state.name} value={item.state.name}>
           {item.state.name}
         </option>
       );
     });
+    return this.props.removeLabel
+      ? [
+          <option key={0} value={0}>
+            Select State
+          </option>,
+          ...stateList
+        ]
+      : stateList;
   };
   distOptions = () => {
     if (this.state.currentDistList) {
-      return this.state.currentDistList.sort(sortDist).map(item => {
+      let distList = this.state.currentDistList.sort(sortDist).map(item => {
         return (
           <option key={item.name} value={item.name}>
             {item.name}
           </option>
         );
       });
+      return this.props.removeLabel
+        ? [
+            <option key={0} value={0}>
+              Select Dist
+            </option>,
+            ...distList
+          ]
+        : distList;
     }
     return "";
   };
   changeState = input => {
+    if (this.props.handleStateChange) {
+      this.props.handleStateChange(input.value);
+    }
     this.setState({ selectedState: input.value });
     let currentState = this.state.stateDist.find(item => {
       return item.state.name === input.value;
@@ -38,15 +57,21 @@ class StateDist extends Component {
     if (currentState) currentDistList = currentState.state.dist;
     this.setState({ currentDistList });
   };
-  changeDist = input => {};
+  changeDist = input => {
+    if (this.props.handleDistChange) {
+      this.props.handleDistChange(input.value);
+    }
+  };
   render() {
+    let divClass = this.props.divClass ? this.props.divClass : "col-md-4 mb-3";
     return (
       <React.Fragment>
-        <div className="col-md-4 mb-3">
+        <div className={divClass}>
           <Select
             id="state"
             name="State"
             label="State"
+            removeLabel={this.props.removeLabel}
             required={true}
             valid={true}
             oType="optionlist"
@@ -55,11 +80,12 @@ class StateDist extends Component {
             feedback="Required."
           />
         </div>
-        <div className="col-md-4 mb-3">
+        <div className={divClass}>
           <Select
             id="district"
             name="District"
             label="District"
+            removeLabel={this.props.removeLabel}
             required={true}
             valid={true}
             oType="optionlist"

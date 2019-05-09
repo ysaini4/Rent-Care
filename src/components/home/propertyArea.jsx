@@ -3,14 +3,46 @@ import { firstCharCapital } from "../../utility/common";
 import { propertyBox } from "./designData";
 import { Link } from "react-router-dom";
 
-const PropertyArea = ({ properties }) => {
+import { css } from "@emotion/core";
+import { ClipLoader } from "react-spinners";
+const PropertyArea = ({ properties, loading }) => {
+  const override = css`
+    display: block;
+    margin: 0 auto;
+    border-color: red;
+  `;
+  if (loading) {
+    return (
+      <section className="section-gap">
+        <div className="sweet-loading" style={{ textAlign: "center" }}>
+          <ClipLoader
+            css={override}
+            sizeUnit={"px"}
+            size={50}
+            color={"#232a33"}
+            loading={loading}
+          />
+          <h2 style={{ fontWeight: 200 }}>Loading Properties...</h2>
+        </div>
+      </section>
+    );
+  }
+  if (!properties[0]) {
+    return (
+      <section className="section-gap" style={{ textAlign: "center" }}>
+        <h2 style={{ fontWeight: 200 }}>No Property Found.</h2>
+      </section>
+    );
+  }
   return (
     <section className="property-area section-gap relative" id="property">
       <div className="container">
         <div className="row d-flex justify-content-center">
           <div className="col-md-10 header-text">
-            <h1>Properties in Various Cities</h1>
-            <p>Who are in extremely love with eco friendly system.</p>
+            <h1 style={{ fontWeight: 200 }}>Properties fo You</h1>
+            <p style={{ fontWeight: 200 }}>
+              Who are in extremely love with eco friendly system.
+            </p>
           </div>
         </div>
         <div className="row">

@@ -16,6 +16,15 @@ export function sortDist(a, b) {
 export const firstCharCapital = string => {
   if (string) return string.charAt(0).toUpperCase() + string.slice(1);
 };
+export const propertyTypes = [
+  { id: 0, lable: "Select Property Type", type: 0 },
+  { id: 1, lable: "Corporate Property", type: "corporate" },
+  { id: 2, lable: "Commercial Property", type: "commercial" },
+  { id: 3, lable: "Residential Property", type: "residential" },
+  { id: 4, lable: "PG/Hostel", type: "pg" },
+  { id: 5, lable: "Hotel", type: "hotel" },
+  { id: 6, lable: "Restaurant", type: "restaurant" }
+];
 export const renderInput = item => {
   let input;
   if (!item.type) {

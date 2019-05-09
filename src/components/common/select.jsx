@@ -8,7 +8,8 @@ const Select = props => {
     label,
     required,
     feedback,
-    oType = "array"
+    oType = "array",
+    removeLabel = false
   } = props;
   let { onChange } = props;
   let sOptions;
@@ -17,7 +18,7 @@ const Select = props => {
   }
   if (oType === "array") {
     sOptions = options.map(pItem => (
-      <option key={pItem} value={pItem}>
+      <option key={pItem} value={pItem} data-display="Choose locations">
         {pItem}
       </option>
     ));
@@ -26,16 +27,17 @@ const Select = props => {
   }
   return (
     <React.Fragment>
-      <label htmlFor={id}>{label}</label>
+      {!removeLabel ? <label htmlFor={id}>{label}</label> : null}
+
       <select
         id={id}
         value={value}
-        className="form-control"
+        className="app-select form-control"
         name={name}
         required={required}
         onChange={({ currentTarget: input }) => onChange(input)}
       >
-        <option value="" />
+        {!removeLabel ? <option value="" /> : null}
         {sOptions}
       </select>
       {/* <div className="valid-feedback">{feedback}</div> */}

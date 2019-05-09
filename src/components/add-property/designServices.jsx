@@ -1,16 +1,14 @@
 import React from "react";
-import { renderInput } from "../../utility/common";
+import { renderInput, propertyTypes } from "../../utility/common";
 
 import StateDist from "../common/stateDist";
 import {
-  propertyTypes,
   pFormRows,
   Ptype,
   textFields,
   otherCheckBox,
   pFor
 } from "./designData";
-
 export const getPropertyType = pId => {
   const fRes = propertyTypes.find(item => {
     return item.id === pId;

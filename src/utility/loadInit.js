@@ -18,7 +18,7 @@ export default function loadInit() {
   }
 
   if (document.getElementById("property")) {
-    $("select").niceSelect();
+    //$("select").niceSelect();
   }
   /*
   $(".img-pop-up").magnificPopup({

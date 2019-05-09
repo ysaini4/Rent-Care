@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Banner from "./banner";
-import { propertyTypes } from "./designData";
 import AddPropertyForm from "./addpropertyform";
+import { propertyTypes } from "../../utility/common";
 
 class AddProperty extends Component {
   state = {
