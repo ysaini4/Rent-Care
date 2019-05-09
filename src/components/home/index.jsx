@@ -66,7 +66,6 @@ class Home extends Component {
       distValue,
       pForValue,
       pTypeValue,
-      searchTextValue,
       priceValue,
       areaValue
     } = this.state;
