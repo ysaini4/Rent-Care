@@ -2,6 +2,7 @@ import React from "react";
 import Select from "../components/common/select";
 import Input from "../components/common/input";
 import Radio from "../components/common/radio";
+import { verifyOtp, generateOtp } from "../services/property";
 
 export function sortState(a, b) {
   if (a.state.name < b.state.name) return -1;
@@ -66,4 +67,30 @@ export const renderInput = item => {
     );
   }
   return input;
+};
+export const verifyOTP = async (mobile, otp) => {
+  try {
+    let res = await verifyOtp({ mobile, otp });
+    if (res.type === "success") {
+      return res;
+    } else {
+      const thObj = { msg: res.message };
+      throw thObj;
+    }
+  } catch (err) {
+    throw err;
+  }
+};
+export const generateOTP = async mobile => {
+  try {
+    let res = await generateOtp({ mobile });
+    if (res.type === "success") {
+      return res;
+    } else {
+      const thObj = { msg: res.message };
+      throw thObj;
+    }
+  } catch (err) {
+    throw err;
+  }
 };

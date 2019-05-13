@@ -5,9 +5,10 @@ import {
   getProperyFields,
   getFormData
 } from "./designServices";
-import { postProperty, generateOtp, verifyOtp } from "../../services/property";
+import { postProperty } from "../../services/property";
 import { toast } from "react-toastify";
 import Input from "../common/input";
+import { generateOTP, verifyOTP } from "../../utility/common";
 class AddPropertyForm extends Component {
   state = { otpSent: true };
 
@@ -22,11 +23,11 @@ class AddPropertyForm extends Component {
       }
       const data = getFormData(e.target, type);
       if (!this.state.otpSent) {
-        await this.generateOTP(data.get("Mobile"));
+        await generateOTP(data.get("Mobile"));
         this.setState({ otpSent: true });
         return;
       } else {
-        //await this.verifyOTP(data.get("Mobile"), data.get("otp"));
+        await verifyOTP(data.get("Mobile"), data.get("otp"));
       }
       let res = await postProperty(data);
       console.log(res, "property add");
@@ -34,32 +35,7 @@ class AddPropertyForm extends Component {
       toast.error(err.msg);
     }
   };
-  verifyOTP = async (mobile, otp) => {
-    try {
-      let res = await verifyOtp({ mobile, otp });
-      if (res.type === "success") {
-        return res;
-      } else {
-        const thObj = { msg: res.message };
-        throw thObj;
-      }
-    } catch (err) {
-      throw err;
-    }
-  };
-  generateOTP = async mobile => {
-    try {
-      let res = await generateOtp({ mobile });
-      if (res.type === "success") {
-        return res;
-      } else {
-        const thObj = { msg: res.message };
-        throw thObj;
-      }
-    } catch (err) {
-      throw err;
-    }
-  };
+
   render() {
     let type;
     if (this.props.paramPId) {

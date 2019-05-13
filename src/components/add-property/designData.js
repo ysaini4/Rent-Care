@@ -330,6 +330,14 @@ const textFileds3 = [
     id: "location",
     type: "text",
     name: "Location"
+  },
+  {
+    feedback: "Required.",
+    required: true,
+    label: "Address",
+    id: "address",
+    type: "text",
+    name: "Address"
   }
 ];
 

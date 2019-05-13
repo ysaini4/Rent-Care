@@ -18,3 +18,8 @@ export const verifyOtp = async data => {
   let url = "/property/votp";
   return await httpService("POST", url, data);
 };
+
+export const addBuyer = async data => {
+  let url = "/buyer";
+  return await httpService("POST", url, data);
+};

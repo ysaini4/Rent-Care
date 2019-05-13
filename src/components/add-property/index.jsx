@@ -17,7 +17,6 @@ class AddProperty extends Component {
     const pId = this.props.match.params.id
       ? parseInt(this.props.match.params.id)
       : this.state.selectedComponentId;
-    console.log(this.props.match.params, "vvv");
 
     return (
       <React.Fragment>
