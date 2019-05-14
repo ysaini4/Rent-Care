@@ -16,6 +16,7 @@ class Home extends Component {
     distValue: "",
     pForValue: "Rent",
     pTypeValue: "",
+    aTypeValue: "",
     searchTextValue: "",
     loading: false
   };
@@ -56,7 +57,10 @@ class Home extends Component {
   handlePType = ({ currentTarget: input }) => {
     this.setState({ pTypeValue: input.value });
   };
-
+  handleAType = ({ currentTarget: input }) => {
+    console.log(input.value);
+    this.setState({ aTypeValue: input.value });
+  };
   handleSearchText = ({ currentTarget: input }) => {
     this.setState({ searchTextValue: input.value });
   };
@@ -67,7 +71,8 @@ class Home extends Component {
       pForValue,
       pTypeValue,
       priceValue,
-      areaValue
+      areaValue,
+      aTypeValue
     } = this.state;
     let searchCondation = { Publish: true };
     if (stateValue && stateValue !== "0") {
@@ -81,23 +86,60 @@ class Home extends Component {
     }
     if (pTypeValue && pTypeValue !== "0") {
       searchCondation.Property = pTypeValue;
+      if (pTypeValue === "residential" && aTypeValue !== "Apprment Type") {
+        searchCondation.Having = aTypeValue;
+      }
     }
-    searchCondation.Budget = {};
     if (priceValue.min) {
-      searchCondation.Budget["$gte"] = priceValue.min;
+      if (pTypeValue === "pg") {
+        if (!searchCondation.$or) searchCondation.$or = [];
+      } else {
+        searchCondation.Budget = {};
+        searchCondation.Budget["$gte"] = priceValue.min;
+      }
     }
     if (priceValue.max) {
-      searchCondation.Budget["$lte"] = priceValue.max;
+      if (pTypeValue === "pg") {
+        if (!searchCondation.$or) searchCondation.$or = [];
+        searchCondation.$or.push(
+          {
+            $and: [
+              { "Budget Only Rooms": { $gte: priceValue.min } },
+              { "Budget Only Rooms": { $lte: priceValue.max } }
+            ]
+          },
+          {
+            $and: [
+              { "Budget With All Meals": { $gte: priceValue.min } },
+              { "Budget With All Meals": { $lte: priceValue.max } }
+            ]
+          }
+        );
+      } else {
+        searchCondation.Budget["$lte"] = priceValue.max;
+      }
     }
-    if (areaValue.min) {
+    if (
+      areaValue.min &&
+      pTypeValue !== "pg" &&
+      pTypeValue !== "hotel" &&
+      pTypeValue !== "restaurant"
+    ) {
       if (!searchCondation["Super Area"]) searchCondation["Super Area"] = {};
       searchCondation["Super Area"]["$gte"] = areaValue.min;
     }
-    if (areaValue.max) {
+    if (
+      areaValue.max &&
+      pTypeValue !== "pg" &&
+      pTypeValue !== "hotel" &&
+      pTypeValue !== "restaurant"
+    ) {
       if (!searchCondation["Super Area"]) searchCondation["Super Area"] = {};
 
       searchCondation["Super Area"]["$lte"] = areaValue.max;
     }
+
+    console.log(searchCondation, "searchCondation");
     this.getProperties(searchCondation);
   };
   render() {
@@ -113,8 +155,10 @@ class Home extends Component {
           handleDistChange={this.handleDistChange}
           handlePFor={this.handlePFor}
           handlePType={this.handlePType}
+          handleAType={this.handleAType}
           handleSearchText={this.handleSearchText}
           handleSearch={this.handleSearch}
+          pTypeValue={this.state.pTypeValue}
         />
         <PropertyArea
           properties={this.state.properties}

@@ -3,7 +3,7 @@ import { firstCharCapital, generateOTP, verifyOTP } from "../../utility/common";
 import { toast } from "react-toastify";
 import { addBuyer } from "../../services/property";
 class Container extends Component {
-  state = { otpSent: true, name: "", email: "", mobile: "", otp: "" };
+  state = { otpSent: false, name: "", email: "", mobile: "", otp: "" };
   handleSubmit = async () => {
     try {
       if (!this.state.otpSent) {
@@ -12,7 +12,7 @@ class Container extends Component {
         return;
       } else {
         const { name, email, mobile } = this.state;
-        //await verifyOTP(this.state.mobile, this.state.otp);
+        await verifyOTP(this.state.mobile, this.state.otp);
         const data = {
           Name: name,
           Email: email,
@@ -63,7 +63,14 @@ class Container extends Component {
                           item !== "MarkAsRead" &&
                           item !== "Publish" &&
                           item !== "ShowAtHome" &&
-                          item !== "Image"
+                          item !== "Image" &&
+                          item !== "Email" &&
+                          item !== "Mobile" &&
+                          item !== "Refrance Person" &&
+                          item !== "PG Name" &&
+                          item !== "Name" &&
+                          item !== "Designation" &&
+                          item !== "Restaurant Name"
                       )
                       .map(item => {
                         return (
@@ -72,7 +79,17 @@ class Container extends Component {
                               <h4>{item}:</h4>
                             </div>
                             <div className="col-sm-4">
-                              <h5>{pageProperty[item]}</h5>
+                              <h5>
+                                {pageProperty[item] ? (
+                                  pageProperty[item] === true ? (
+                                    <p style={{ color: "green " }}>Yes</p>
+                                  ) : (
+                                    pageProperty[item]
+                                  )
+                                ) : (
+                                  <p style={{ color: "red" }}>No</p>
+                                )}
+                              </h5>
                             </div>
                           </React.Fragment>
                         );

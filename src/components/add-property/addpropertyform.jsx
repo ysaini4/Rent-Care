@@ -10,7 +10,7 @@ import { toast } from "react-toastify";
 import Input from "../common/input";
 import { generateOTP, verifyOTP } from "../../utility/common";
 class AddPropertyForm extends Component {
-  state = { otpSent: true };
+  state = { otpSent: false };
 
   handleSubmit = async (e, type) => {
     try {

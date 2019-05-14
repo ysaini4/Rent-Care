@@ -124,7 +124,7 @@ export const pg = [
   "Four Sharing Rooms",
   "Room Size",
   "Budget Only Rooms",
-  "Budget With All Meal",
+  "Budget With All Meals",
   "Gim",
   "Pool",
   "Sports",
@@ -137,7 +137,6 @@ export const pg = [
   "Railway Station",
   "Metro Station",
   "Hospital",
-
   "Image",
   "Date",
   "MarkAsRead",

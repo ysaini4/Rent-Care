@@ -67,7 +67,11 @@ const PropertyArea = ({ properties, loading }) => {
                         <small> {item["Ptype"]}</small>
                       </h4>
                       <h4 style={{ fontFamily: "inherit" }}>
-                        &#x20b9; {item.Budget} /-
+                        &#x20b9;{" "}
+                        {item.Property !== "pg"
+                          ? item.Budget
+                          : item["Budget Only Rooms"]}{" "}
+                        /-
                       </h4>
                     </div>
                     <div className="middle">

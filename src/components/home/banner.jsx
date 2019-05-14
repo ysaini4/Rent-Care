@@ -13,8 +13,19 @@ const Banner = ({
   handleDistChange,
   handlePFor,
   handlePType,
-  handleSearch
+  handleSearch,
+  pTypeValue,
+  handleAType
 }) => {
+  const apprmentType = [
+    "Apprment Type",
+    "1 BHK",
+    "2 BHK",
+    "3 BHK",
+    "4 BHK",
+    "5 BHK"
+  ];
+
   return (
     <section className="home-banner-area relative" id="home">
       <div className="overlay overlay-bg" />
@@ -25,14 +36,7 @@ const Banner = ({
             <div className="search-field">
               <form className="search-form" action="#">
                 <div className="row">
-                  {/* <div className="col-lg-12 d-flex align-items-center justify-content-center toggle-wrap">
-                    <div className="row">
-                      <div className="col">
-                        <h4 className="search-title">Search Properties For</h4>
-                      </div>
-                    </div>
-                  </div> */}
-                  <div className="col-lg-6 col-md-12 col-xs-6">
+                  <div className="col-lg-4 col-md-12 col-xs-6">
                     <div className="row">
                       <StateDist
                         removeLabel={true}
@@ -41,27 +45,6 @@ const Banner = ({
                         handleDistChange={handleDistChange}
                       />
                     </div>
-                    {/* <select
-                      name="location"
-                      className="app-select form-control"
-                      required
-                    >
-                      <option data-display="Choose locations">
-                        Choose locations
-                      </option>
-                      <option value="1">Dhaka</option>
-                      <option value="2">Rangpur</option>
-                      <option value="3">Bogra</option>
-                    </select> */}
-                  </div>
-                  <div className="col-lg-3 col-md-6 col-xs-6">
-                    <input
-                      type="text"
-                      className="app-select form-control"
-                      name="searchText"
-                      placeholder="Address"
-                      onChange={handleSearchText}
-                    />
                   </div>
                   <div className="col-lg-3 col-md-6 col-xs-6">
                     <select
@@ -83,22 +66,37 @@ const Banner = ({
                       })}
                     </select>
                   </div>
-                  {/* <div className="col-lg-3 col-md-6 col-xs-6">
-                    <select
-                      name="bedroom"
+                  {pTypeValue === "residential" ? (
+                    <div className="col-lg-2 col-md-6 col-xs-6">
+                      <select
+                        name="room-type"
+                        className="app-select form-control"
+                        required
+                        onChange={handleAType}
+                      >
+                        {apprmentType.map(item => {
+                          return (
+                            <option data-display={item} value={item} key={item}>
+                              {item}
+                            </option>
+                          );
+                        })}
+                      </select>
+                    </div>
+                  ) : null}
+
+                  <div className="col-lg-3 col-md-6 col-xs-6">
+                    <input
+                      type="text"
                       className="app-select form-control"
-                      required
-                    >
-                      <option data-display="Bedrooms">Bedrooms</option>
-                      <option value="1">One</option>
-                      <option value="2">Two</option>
-                      <option value="3">Three</option>
-                    </select>
-                  </div> */}
+                      name="searchText"
+                      placeholder="Location"
+                      onChange={handleSearchText}
+                    />
+                  </div>
 
                   <div className="col-lg-6 range-wrap">
                     <p>Price Range(₹):</p>
-                    {/* <input type="text" id="range" name="range" /> */}
 
                     <InputRange
                       step={1}
@@ -125,7 +123,6 @@ const Banner = ({
                       }}
                       onChangeComplete={value => {}}
                     />
-                    {/* <input type="text" id="range2" name="range" /> */}
                   </div>
 
                   <div
