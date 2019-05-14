@@ -70,6 +70,8 @@ class Container extends Component {
                           item !== "PG Name" &&
                           item !== "Name" &&
                           item !== "Designation" &&
+                          item !== "Company Name" &&
+                          item !== "Refrance Name" &&
                           item !== "Restaurant Name"
                       )
                       .map(item => {
