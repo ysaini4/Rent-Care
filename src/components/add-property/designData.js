@@ -164,6 +164,13 @@ const rPtype = [
     id: "pvtvillas"
   },
   {
+    value: "Plot",
+    type: "radio",
+    name: "Ptype",
+    label: "Plot",
+    id: "plot"
+  },
+  {
     value: "Farm House",
     type: "radio",
     name: "Ptype",
@@ -214,6 +221,13 @@ const pgtype = [
     id: "boys"
   },
   {
+    value: "Both",
+    type: "radio",
+    name: "Ptype",
+    label: "Both",
+    id: "both"
+  },
+  {
     name: "Ptype",
     value: "Girls",
     type: "radio",
@@ -239,26 +253,10 @@ const crTextFileds = [
   {
     feedback: "Required.",
     required: true,
-    label: "Company Name",
-    id: "cname",
+    label: "Name",
+    id: "name",
     type: "text",
-    name: "Company Name"
-  },
-  {
-    feedback: "Required.",
-    required: true,
-    label: "Refrance Name",
-    id: "rname",
-    type: "text",
-    name: "Refrance Name"
-  },
-  {
-    feedback: "Required.",
-    required: true,
-    label: "Designation",
-    id: "designation",
-    type: "text",
-    name: "Designation"
+    name: "Name"
   }
 ];
 const textFileds2 = [
@@ -689,12 +687,12 @@ const facing = [
   "North-West"
 ];
 const apprmentType = ["1 BHK", "2 BHK", "3 BHK", "4 BHK", "5 BHK"];
-const ftype = ["Furnished", "Unfurnished"];
+const ftype = ["Furnished", "Semi furnished", "Unfurnished"];
 const rselectFields = [
   {
     feedback: "Required.",
     required: true,
-    label: "Having",
+    label: "BHK",
     id: "having",
     name: "Having",
     options: apprmentType
@@ -702,9 +700,9 @@ const rselectFields = [
   {
     feedback: "Required.",
     required: true,
-    label: "Floor",
+    label: "Floors",
     id: "floor",
-    name: "Floor",
+    name: "Floors",
     options: ["Ground", ..._.range(1, 26)]
   },
   {
@@ -850,7 +848,7 @@ const rrSelectFields = [
   {
     feedback: "Required.",
     required: true,
-    label: "Seatry",
+    label: "Seating",
     id: "seatry",
     name: "Seatry",
     options: [20, 50, 100, 150]
