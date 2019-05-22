@@ -10,6 +10,7 @@ import Home from "./components/home";
 
 import NotFound from "./components/notFound";
 import AddProperty from "./components/add-property";
+import RequestProperty from "./components/request-property";
 import SingleProperty from "./components/single-property/index";
 import Footer from "./components/footer";
 class App extends Component {
@@ -22,6 +23,7 @@ class App extends Component {
         <Switch>
           <Route path="/home" component={Home} />
           <Route path="/addproperty" component={AddProperty} exact />
+          <Route path="/requestproperty" component={RequestProperty} exact />
           <Route path="/addproperty/:id" component={AddProperty} />
           <Route path="/property/:id" component={SingleProperty} exact />
           <Route path="/not-found" component={NotFound} />

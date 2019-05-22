@@ -6,6 +6,9 @@ export const postProperty = async data => {
   };*/
   return await httpService("POST", "/property", data);
 };
+export const requestProperty = async data => {
+  return await httpService("POST", "/requestproperty", data);
+};
 export const searchProperty = async data => {
   return await httpService("POST", "/property/search", data);
 };

@@ -45,6 +45,9 @@ const Header = () => {
                   <Link to="/addproperty">Add properties</Link>
                 </li>
                 <li>
+                  <Link to="/requestproperty">Request properties</Link>
+                </li>
+                <li>
                   <Link to="/addproperty/4">PG/Hostel</Link>
                 </li>
                 <li>

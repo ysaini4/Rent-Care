@@ -26,6 +26,11 @@ export const propertyTypes = [
   { id: 5, lable: "Hotel", type: "hotel" },
   { id: 6, lable: "Restaurant", type: "restaurant" }
 ];
+export const propertyTypesRequest = [
+  { id: 0, lable: "Select Property Type", type: 0 },
+  { id: 1, lable: "Corporate/Commercial Property", type: "corporate" },
+  { id: 3, lable: "Residential Property", type: "residential" }
+];
 export const renderInput = item => {
   let input;
   if (!item.type) {
