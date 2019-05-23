@@ -4,15 +4,15 @@ self.__precacheManifest = [
     "url": "/rent-care/static/js/runtime~main.f9d48b3e.js"
   },
   {
-    "revision": "a62d0fcbf25c19e4794d",
-    "url": "/rent-care/static/js/main.5e18f6c1.chunk.js"
+    "revision": "d4f3690b6f255167e700",
+    "url": "/rent-care/static/js/main.7319f517.chunk.js"
   },
   {
     "revision": "78dda7d0d58b122625f3",
     "url": "/rent-care/static/js/2.cf9a5f35.chunk.js"
   },
   {
-    "revision": "a62d0fcbf25c19e4794d",
+    "revision": "d4f3690b6f255167e700",
     "url": "/rent-care/static/css/main.ecc23e4e.chunk.css"
   },
   {
@@ -20,7 +20,7 @@ self.__precacheManifest = [
     "url": "/rent-care/static/css/2.699d2783.chunk.css"
   },
   {
-    "revision": "dcf83642bb6a0c3d0e3630413777680a",
+    "revision": "8a947b702eb4cddbe9670f2820f4ad0d",
     "url": "/rent-care/index.html"
   }
 ];
