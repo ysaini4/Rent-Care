@@ -61,7 +61,6 @@ export const getFormData = (data, type) => {
   for (const [key, value] of formData.entries()) {
     jsonObject[key] = value;
   }
-  console.log(jsonObject);
   return jsonObject;
   /*let checkboxfields = otherCheckBox(type);
   checkboxfields.forEach(item => {

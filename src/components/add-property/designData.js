@@ -361,7 +361,7 @@ const pgTextFileds = [
   {
     feedback: "Required.",
     required: true,
-    label: "Refrance Person",
+    label: "Reference Person",
     id: "rperson",
     type: "text",
     name: "Refrance Person"
@@ -391,7 +391,7 @@ const hrrtextfileds = [
   {
     feedback: "Required.",
     required: true,
-    label: "Refrance Person",
+    label: "Reference Person",
     id: "rperson",
     type: "text",
     name: "Refrance Person"

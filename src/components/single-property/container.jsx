@@ -3,7 +3,16 @@ import { firstCharCapital, generateOTP, verifyOTP } from "../../utility/common";
 import { toast } from "react-toastify";
 import { addBuyer } from "../../services/property";
 class Container extends Component {
-  state = { otpSent: false, name: "", email: "", mobile: "", otp: "" };
+  state = {
+    otpSent: false,
+    name: "",
+    email: "",
+    mobile: "",
+    otp: "",
+    designation: "",
+    cname: "",
+    rname: ""
+  };
   handleSubmit = async () => {
     try {
       if (!this.state.otpSent) {
@@ -11,7 +20,7 @@ class Container extends Component {
         this.setState({ otpSent: true });
         return;
       } else {
-        const { name, email, mobile } = this.state;
+        const { name, email, mobile, cname, rname, designation } = this.state;
         await verifyOTP(this.state.mobile, this.state.otp);
         const data = {
           Name: name,
@@ -19,6 +28,12 @@ class Container extends Component {
           Mobile: mobile,
           pId: this.props.pageProperty._id
         };
+        const type = this.props.pageProperty.Property;
+        if (type === "corporate" || type === "commercial") {
+          data["Company Name"] = cname;
+          data["Reference Name"] = rname;
+          data["Designation"] = designation;
+        }
         let res = await addBuyer(data);
         console.log(res);
       }
@@ -26,6 +41,43 @@ class Container extends Component {
       toast.error(err.msg);
     }
   };
+  getcustomFields(type) {
+    if (type === "corporate" || type === "commercial") {
+      const { designation, cname, rname } = this.state;
+      return (
+        <React.Fragment>
+          <input
+            className="form-control"
+            placeholder="Company Name"
+            name="Company Name"
+            value={cname}
+            onChange={({ currentTarget: input }) => {
+              this.setState({ cname: input.value });
+            }}
+          />
+          <input
+            className="form-control"
+            placeholder="Reference Name"
+            name="Reference Name"
+            value={rname}
+            onChange={({ currentTarget: input }) => {
+              this.setState({ rname: input.value });
+            }}
+          />
+          <input
+            className="form-control"
+            placeholder="Designation"
+            name="Designation"
+            value={designation}
+            onChange={({ currentTarget: input }) => {
+              this.setState({ designation: input.value });
+            }}
+          />
+        </React.Fragment>
+      );
+    }
+    return null;
+  }
   render() {
     const { pageProperty, displayFields } = this.props;
     const { name, email, mobile, otp } = this.state;
@@ -104,6 +156,7 @@ class Container extends Component {
             <div className="col-lg-4">
               <h4 className="">Want more details ?</h4>
               <form className="needs-validation" />
+              {this.getcustomFields(pageProperty.Property)}
               <input
                 className="form-control"
                 placeholder="Name"
