@@ -8,7 +8,7 @@ import {
 import { requestProperty } from "../../services/property";
 import { toast } from "react-toastify";
 import Input from "../common/input";
-import { generateOTP, verifyOTP } from "../../utility/common";
+import { generateOTP, verifyOTP, sendMSG } from "../../utility/common";
 class RequestPropertyForm extends Component {
   state = { otpSent: true };
 
@@ -30,6 +30,10 @@ class RequestPropertyForm extends Component {
         // await verifyOTP(data.Mobile, data.otp));
       }
       let res = await requestProperty(data);
+      sendMSG(
+        data.Mobile,
+        "Hi Thanks for adding Your property request at Rent care."
+      );
       console.log(res, "property add");
     } catch (err) {
       toast.error(err.msg);

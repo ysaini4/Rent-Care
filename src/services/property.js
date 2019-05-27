@@ -12,7 +12,10 @@ export const requestProperty = async data => {
 export const searchProperty = async data => {
   return await httpService("POST", "/property/search", data);
 };
-
+export const sendMsg = async data => {
+  let url = "/property/sendmsg";
+  return await httpService("POST", url, data);
+};
 export const generateOtp = async data => {
   let url = "/property/gotp";
   return await httpService("POST", url, data);

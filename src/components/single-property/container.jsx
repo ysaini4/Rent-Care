@@ -1,5 +1,10 @@
 import React, { Component } from "react";
-import { firstCharCapital, generateOTP, verifyOTP } from "../../utility/common";
+import {
+  firstCharCapital,
+  generateOTP,
+  verifyOTP,
+  sendMSG
+} from "../../utility/common";
 import { toast } from "react-toastify";
 import { addBuyer } from "../../services/property";
 class Container extends Component {
@@ -35,6 +40,10 @@ class Container extends Component {
           data["Designation"] = designation;
         }
         let res = await addBuyer(data);
+        sendMSG(
+          mobile,
+          "Hi Thanks for showing Your property interest at Rent care.We will contact you shortly "
+        );
         console.log(res);
       }
     } catch (err) {

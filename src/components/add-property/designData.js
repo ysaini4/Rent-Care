@@ -211,6 +211,25 @@ const cmcrPtype = [
     feedback: "Property Type Required"
   }
 ];
+const userPtype = [
+  {
+    value: "Owner",
+    type: "radio",
+    name: "Ptype",
+    label: "Owner",
+    id: "Owner",
+    required: true
+  },
+
+  {
+    value: "FreeLand",
+    type: "radio",
+    name: "Ptype",
+    label: "FreeLand",
+    id: "freeLand",
+    feedback: "Property Type Required"
+  }
+];
 const pgtype = [
   {
     required: true,
@@ -220,13 +239,7 @@ const pgtype = [
     label: "Boys",
     id: "boys"
   },
-  {
-    value: "Both",
-    type: "radio",
-    name: "Ptype",
-    label: "Both",
-    id: "both"
-  },
+
   {
     name: "Ptype",
     value: "Girls",
@@ -234,6 +247,13 @@ const pgtype = [
     label: "Girls",
     id: "girls",
     feedback: "Pg Type Required"
+  },
+  {
+    value: "Both",
+    type: "radio",
+    name: "Ptype",
+    label: "Both",
+    id: "both"
   }
 ];
 /* property type radio */
