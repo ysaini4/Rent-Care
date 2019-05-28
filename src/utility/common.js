@@ -112,3 +112,28 @@ export const sendMSG = async (mobile, msg) => {
     throw err;
   }
 };
+export const bannerClass = pId => {
+  let classB = "bannerimg";
+  if (pId === 0) {
+    classB = "bannerimg";
+  }
+  if (pId === 1) {
+    classB = "bannerimg1";
+  }
+  if (pId === 2) {
+    classB = "bannerimg2";
+  }
+  if (pId === 3) {
+    classB = "bannerimg3";
+  }
+  if (pId === 4) {
+    classB = "bannerimg4";
+  }
+  if (pId === 5) {
+    classB = "bannerimg5";
+  }
+  if (pId === 6) {
+    classB = "bannerimg6";
+  }
+  return classB;
+};

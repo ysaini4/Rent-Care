@@ -2,9 +2,31 @@
   background: url(../img/grid2.png) repeat center;
 }
 .banner-area .overlay {
-  background: url(../img/grid2.png) repeat center;
+  /* background: url(../img/grid1.png) repeat center;*/
 }
-.home-banner-area,
-.banner-area {
+.home-banner-area {
   background: url(../img/header-bg1.jpg) no-repeat center center/cover;
+}
+.bannerimg {
+  background: url(../img/header-bg1.jpg) no-repeat center center/cover;
+}
+.bannerimg1 {
+  /*  background: url(../img/corp3.jpg) no-repeat center center/cover;
+*/
+  background: url(../img/header-bg2.jpg) no-repeat center center/cover;
+}
+.bannerimg2 {
+  background: url(../img/com.jpg) no-repeat center center/cover;
+}
+.bannerimg3 {
+  background: url(../img/house3.jpg) no-repeat center center/cover;
+}
+.bannerimg4 {
+  background: url(../img/pg8.jpg) no-repeat center center/cover;
+}
+.bannerimg5 {
+  background: url(../img/hot2.jpg) no-repeat center center/cover;
+}
+.bannerimg6 {
+  background: url(../img/resto7.jpg) no-repeat center center/cover;
 }

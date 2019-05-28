@@ -1,7 +1,8 @@
 import React from "react";
-const Banner = () => {
+import { bannerClass } from "../../utility/common";
+const Banner = ({ pId }) => {
   return (
-    <section className="banner-area relative">
+    <section className={`banner-area ${bannerClass(pId)} relative`}>
       <div className="overlay overlay-bg" />
       <div className="container">
         <div className="row d-flex text-center align-items-center justify-content-center">

@@ -20,7 +20,7 @@ class AddProperty extends Component {
 
     return (
       <React.Fragment>
-        <Banner />
+        <Banner pId={this.state.selectedComponentId} />
         <section className="section-gap relative ">
           <div className="container">
             <h4 style={{ marginBottom: 20 }}>Request a Property</h4>
