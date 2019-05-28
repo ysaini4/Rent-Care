@@ -81,7 +81,13 @@ export const textFields = type => {
     ];
   }
   if (type === "residential") {
-    return [...cmrtextFileds, ...textFileds3, ...rselectFields, ...textFileds2];
+    return [
+      ...cmrtextFileds,
+      ...textFileds3,
+      ...rselectFields,
+      ...textFileds2,
+      ...selectFiledsres4
+    ];
   }
   if (type === "pg") {
     return [
@@ -122,11 +128,11 @@ const pForAll = [
     id: "rent"
   },
   {
-    value: "Sell",
+    value: "Buy",
     type: "radio",
     name: "PropertyFor",
-    label: "Sell",
-    id: "sell"
+    label: "Buy",
+    id: "buy"
   }
 ];
 /* property type radio  */
@@ -787,6 +793,23 @@ const pgSelectFields = [
     id: "noorooms",
     name: "No.of Rooms",
     options: _.range(1, 25)
+  }
+];
+const selectFiledsres4 = [
+  {
+    feedback: "Required.",
+    required: true,
+    label: "Available for",
+    id: "availablefor",
+    name: "Available for",
+    options: [
+      "Only Boys",
+      "Only Girls",
+      "Only Students",
+      "Only Family",
+      "Only Non Family",
+      "For All"
+    ]
   }
 ];
 const pgSelectFields1 = [

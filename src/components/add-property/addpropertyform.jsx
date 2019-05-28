@@ -49,6 +49,7 @@ class AddPropertyForm extends Component {
     }
     if (!type) return null;
     let pFields = getProperyFields(type);
+    console.log(pFields);
     return (
       <form
         className="needs-validation"

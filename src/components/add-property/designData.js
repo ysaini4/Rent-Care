@@ -2,6 +2,7 @@ import _ from "lodash";
 
 export const pFormRows = {
   typeRow1: "Ptype",
+  typeRow3: "Utype",
   typeRow2: "pFor",
   textFieldsRow1: "textFields",
   checkBoxRow1: "otherCheckBox"
@@ -11,6 +12,9 @@ export const Ptype = type => {
   if (type === "corporate" || type === "commercial") return cmcrPtype;
   if (type === "residential") return rPtype;
   if (type === "pg") return pgtype;
+};
+export const Utype = type => {
+  return userPtype;
 };
 export const pFor = type => {
   return pForAll;
@@ -51,9 +55,19 @@ export const otherCheckBox = type => {
       }
     ];
   }
-  if (type === "hotel" || type === "restaurant") {
+  if (type === "hotel") {
     return [
       { id: "Facility", label: "Facility", checkBoxes: hFacilities },
+      {
+        id: "Near By",
+        label: "Near By(Under 5 Kilometers)",
+        checkBoxes: nearBy
+      }
+    ];
+  }
+  if (type === "restaurant") {
+    return [
+      { id: "Facility", label: "Facility", checkBoxes: resFacilities },
       {
         id: "Near By",
         label: "Near By(Under 5 Kilometers)",
@@ -79,6 +93,7 @@ export const textFields = type => {
       ...textFileds3,
       ...cmcrSelectFields,
       ...textFileds2,
+      ...crpropstsSelect,
       ...imageFiled
     ];
   }
@@ -88,6 +103,8 @@ export const textFields = type => {
       ...textFileds3,
       ...rselectFields,
       ...textFileds2,
+      ...selectFiledsres4,
+      ...crpropstsSelect,
       ...imageFiled
     ];
   }
@@ -99,6 +116,7 @@ export const textFields = type => {
       ...pgSelectFields1,
       ...pgTextFileds2,
       ...pgTextFileds3,
+      ...crpropstsSelect,
       ...imageFiled
     ];
   }
@@ -109,6 +127,7 @@ export const textFields = type => {
       ...textFileds3,
       ...hSelectFields,
       ...hrrTextFileds3,
+      ...crpropstsSelect,
       ...imageFiled
     ];
   }
@@ -119,6 +138,7 @@ export const textFields = type => {
       ...textFileds3,
       ...rrSelectFields,
       ...hrrTextFileds3,
+      ...crpropstsSelect,
       ...imageFiled
     ];
   }
@@ -215,18 +235,18 @@ const userPtype = [
   {
     value: "Owner",
     type: "radio",
-    name: "Ptype",
+    name: "Utype",
     label: "Owner",
-    id: "Owner",
+    id: "owner",
     required: true
   },
 
   {
-    value: "FreeLand",
+    value: "Broker",
     type: "radio",
-    name: "Ptype",
-    label: "FreeLand",
-    id: "freeLand",
+    name: "Utype",
+    label: "Broker",
+    id: "broker",
     feedback: "Property Type Required"
   }
 ];
@@ -369,6 +389,7 @@ const imageFiled = [
     name: "Image"
   }
 ];
+
 const pgTextFileds = [
   {
     feedback: "Required.",
@@ -637,8 +658,8 @@ const pgFacilities = [
     name: "Kitchen"
   }
 ];
-const hFacilities = [
-  { type: "checkbox", label: "Gim", value: true, id: "gim", name: "Gim" },
+
+const resFacilities = [
   { type: "checkbox", label: "Pool", value: true, id: "pool", name: "Pool" },
   { type: "checkbox", label: "Bar", value: true, id: "bar", name: "Bar" },
   {
@@ -663,7 +684,10 @@ const hFacilities = [
     name: "Parking"
   }
 ];
-
+const hFacilities = [
+  { type: "checkbox", label: "Gim", value: true, id: "gim", name: "Gim" },
+  ...resFacilities
+];
 const nearBy = [
   {
     label: "Police Station",
@@ -802,6 +826,23 @@ const pgSelectFields = [
     id: "noorooms",
     name: "No.of Rooms",
     options: _.range(1, 25)
+  }
+];
+const selectFiledsres4 = [
+  {
+    feedback: "Required.",
+    required: true,
+    label: "Available for",
+    id: "availablefor",
+    name: "Available for",
+    options: [
+      "Only Boys",
+      "Only Girls",
+      "Only Students",
+      "Only Family",
+      "Only Non Family",
+      "For All"
+    ]
   }
 ];
 const pgSelectFields1 = [
