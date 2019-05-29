@@ -15,7 +15,8 @@ const Banner = ({
   handlePType,
   handleSearch,
   pTypeValue,
-  handleAType
+  handleAType,
+  hbClass
 }) => {
   const apprmentType = [
     "Apprment Type",
@@ -27,7 +28,7 @@ const Banner = ({
   ];
 
   return (
-    <section className="home-banner-area relative" id="home">
+    <section className={`home-banner-area ${hbClass} relative`} id="home">
       <div className="overlay overlay-bg" />
       <div className="container">
         <div className="row fullscreen align-items-end justify-content-center">

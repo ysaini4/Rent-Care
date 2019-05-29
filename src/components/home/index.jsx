@@ -18,13 +18,25 @@ class Home extends Component {
     pTypeValue: "",
     aTypeValue: "",
     searchTextValue: "",
-    loading: false
+    loading: false,
+    hbClass: "hb1 hb2 hb3 hb4 hb5"
   };
   componentDidMount() {
     loadInit();
     this.getProperties({ Publish: true, ShowAtHome: true });
+    this.changeHB();
   }
-
+  changeHB = () => {
+    let hbClasses = ["hb1", "hb2", "hb3", "hb4", "hb5"];
+    let counter = 1;
+    setInterval(() => {
+      this.setState({ hbClass: hbClasses[counter] });
+      counter++;
+      if (counter >= 5) {
+        counter = 1;
+      }
+    }, 5000);
+  };
   handlePriceValue = priceValue => {
     this.setState({ priceValue });
   };
@@ -159,6 +171,7 @@ class Home extends Component {
           handleSearchText={this.handleSearchText}
           handleSearch={this.handleSearch}
           pTypeValue={this.state.pTypeValue}
+          hbClass={this.state.hbClass}
         />
         <PropertyArea
           properties={this.state.properties}

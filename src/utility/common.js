@@ -113,9 +113,10 @@ export const sendMSG = async (mobile, msg) => {
   }
 };
 export const bannerClass = pId => {
-  let classB = "bannerimg";
+  let classB;
   if (pId === 0) {
-    classB = "bannerimg";
+    classB =
+      "bannerimg1 bannerimg2 bannerimg3 bannerimg4 bannerimg5 bannerimg6 bannerimg";
   }
   if (pId === 1) {
     classB = "bannerimg1";
