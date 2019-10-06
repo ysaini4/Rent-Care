@@ -100,8 +100,8 @@ const Banner = ({
                     <p>Price Range(₹):</p>
 
                     <InputRange
-                      step={1}
-                      minValue={1}
+                      step={1000}
+                      minValue={1000}
                       maxValue={10000}
                       formatLabel={value => `₹ ${value}`}
                       value={priceValue}
@@ -114,9 +114,9 @@ const Banner = ({
                   <div className="col-lg-6 range-wrap">
                     <p>Area Range(sq.ft.):</p>
                     <InputRange
-                      step={1}
-                      minValue={1}
-                      maxValue={445345}
+                      step={5000}
+                      minValue={0}
+                      maxValue={50000}
                       formatLabel={value => `${value} sq.ft.`}
                       value={areaValue}
                       onChange={value => {

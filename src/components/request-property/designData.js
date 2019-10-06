@@ -350,16 +350,6 @@ const textFileds3 = [
   }
 ];
 
-const imageFiled = [
-  {
-    feedback: "Required.",
-    required: true,
-    label: "Image",
-    id: "image",
-    type: "file",
-    name: "Image"
-  }
-];
 const pgTextFileds = [
   {
     feedback: "Required.",
@@ -765,6 +755,14 @@ const crpropstsSelect = [
     id: "propertystatus",
     name: "Property Status",
     options: ["Approved", "Non Approved"]
+  },
+  {
+    feedback: "Required.",
+    required: true,
+    label: "Property Type",
+    id: "propertytype",
+    name: "Property Type",
+    options: ["Current", "Coming"]
   }
 ];
 const cmcrSelectFields = [
@@ -810,8 +808,17 @@ const selectFiledsres4 = [
       "Only Non Family",
       "For All"
     ]
+  },
+  {
+    feedback: "Required.",
+    required: true,
+    label: "Property Type",
+    id: "propertytype",
+    name: "Property Type",
+    options: ["Current", "Coming"]
   }
 ];
+
 const pgSelectFields1 = [
   {
     feedback: "Required.",

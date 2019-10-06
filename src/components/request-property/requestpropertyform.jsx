@@ -10,13 +10,13 @@ import { toast } from "react-toastify";
 import Input from "../common/input";
 import { generateOTP, verifyOTP, sendMSG } from "../../utility/common";
 class RequestPropertyForm extends Component {
-  state = { otpSent: true };
+  state = { otpSent: false };
 
   handleSubmit = async (e, type) => {
     try {
       e.preventDefault();
       const form = e.currentTarget;
-      if (!form.checkValidity() && false) {
+      if (!form.checkValidity()) {
         form.classList.add("was-validated");
         const errObject = { msg: "Fill the form properly." };
         throw errObject;
@@ -27,7 +27,7 @@ class RequestPropertyForm extends Component {
         this.setState({ otpSent: true });
         return;
       } else {
-        // await verifyOTP(data.Mobile, data.otp));
+        await verifyOTP(data.Mobile, data.otp);
       }
       let res = await requestProperty(data);
       sendMSG(

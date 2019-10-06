@@ -798,6 +798,14 @@ const crpropstsSelect = [
     id: "propertystatus",
     name: "Property Status",
     options: ["Approved", "Non Approved"]
+  },
+  {
+    feedback: "Required.",
+    required: true,
+    label: "Property Type",
+    id: "propertytype",
+    name: "Property Type",
+    options: ["Current", "Coming"]
   }
 ];
 const cmcrSelectFields = [

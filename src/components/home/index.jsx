@@ -10,8 +10,8 @@ class Home extends Component {
   state = {
     properties: [],
     propertyTypes: propertyTypes,
-    priceValue: { min: 3, max: 5 },
-    areaValue: { min: 50, max: 200 },
+    priceValue: { min: 0, max: 2000 },
+    areaValue: { min: 0, max: 5000 },
     stateValue: "",
     distValue: "",
     pForValue: "Rent",
